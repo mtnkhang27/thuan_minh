@@ -1,0 +1,82 @@
+    <footer class="footer">
+    <div class="footer__top">
+        <div class="row">
+        <div class="col l-3 m-12 c-12">
+            <a href="/{if $lang!='vn'}{$lang}{/if}" class="footer__logo">
+            <img src="{$estore->getProperty('store_logo')}" alt="logo footer" />
+            </a>
+            <div class="footer__desc">
+                {$estore->getAboutUs($lang)}
+            </div>
+            <div class="footer__socials">
+            <a href="{$estore->getProperty('custom_fb')}" target="_blank" class="footer__socials__item">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="{$estore->getProperty('custom_twitter')}" target="_blank" class="footer__socials__item">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="{$estore->getProperty('custom_instagram')}" target="_blank" class="footer__socials__item">
+                <i class="fa-brands fa-square-instagram"></i>
+            </a>
+            <a href="{$estore->getProperty('custom_youtube')}" target="_blank" class="footer__socials__item">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            </div>
+        </div>
+        <div class="col l-3 m-12 c-12">
+            <h3 class="footer__heading">{$messages['address']}</h3>
+            <div class="footer__group">
+            <div class="footer__label">{$messages['address']}:</div>
+            <div class="footer__text">{$estore->getAddress($lang)}</div>
+            </div>
+            <div class="footer__group">
+            <div class="footer__label">{$messages['tel']}:</div>
+            <div class="footer__text"> {$estore->getTel()}</div>
+            </div>
+            <div class="footer__group">
+            <div class="footer__label">Email:</div>
+            <div class="footer__text">{$estore->getEmail()}</div>
+            </div>
+        </div>
+        <div class="col l-3 m-12 c-12">
+            <h3 class="footer__heading">{$messages['information']}</h3>
+            {if $arrayListMenu}
+            {foreach $arrayListMenu as $itemMenu}
+            {if $itemMenu['id'] != '42'}
+            <a href="{$itemMenu['url']}" class="footer__link">{$itemMenu['name']}</a>
+            {/if}
+            {/foreach}
+            {/if}
+        </div>
+        <div class="col l-3 m-12 c-12">
+            <h3 class="footer__heading">{$estore->getCompany($lang)}</h3>
+            <div class="footer__page">
+            <div
+                class="fb-page"
+                data-href="{$estore->getProperty('custom_link_page_facebook')}"
+                data-tabs="timeline"
+                data-width=""
+                data-height="70"
+                data-small-header="false"
+                data-adapt-container-width="true"
+                data-hide-cover="false"
+                data-show-facepile="true"
+            >
+                <blockquote cite="{$estore->getProperty('custom_link_page_facebook')}" class="fb-xfbml-parse-ignore">
+                <a href="{$estore->getProperty('custom_link_page_facebook')}">{$estore->getProperty('custom_name_facebook')}</a>
+                </blockquote>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="footer__bot">
+        <div class="footer__license">
+        <i class="fa-regular fa-copyright"></i> {$estore->getDetailService($lang)}
+        </div>
+    </div>
+    </footer>
+</div>
+{include file='js.tpl.html' title='siteJS'}
+</body>
+</html>

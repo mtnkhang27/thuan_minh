@@ -1,0 +1,41 @@
+// breakpoint
+@mixin me-header {
+  @media (max-width: 1340px){
+		@content;
+  }
+}
+@mixin sm-header {
+  @media (max-width: 1260px){
+		@content;
+  }
+}
+@mixin mobile-header {
+  @media (max-width: 1100px){
+		@content;
+  }
+}
+@mixin sm-desk {
+  @media (max-width: 1499px){
+		@content;
+  }
+}
+@mixin tablet-mobile {
+  @media (max-width: 991px){
+		@content;
+  }
+}
+@mixin tablet {
+	@media (min-width: 768px) and (max-width: 991px) {
+		@content;
+	}
+}
+@mixin mobile {
+	@media (max-width: 767px) {
+		@content;
+	}
+}
+@mixin mobileSmall {
+	@media (max-width: 350px) {
+		@content;
+	}
+}

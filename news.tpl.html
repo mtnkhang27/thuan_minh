@@ -1,0 +1,128 @@
+{include file='head.tpl.html' title='siteHead'}
+	{include file='loading.tpl.html' title='siteLoading'}
+	{include file='header.tpl.html' title='siteHeader'}
+	<main class="main">
+		<div class="homeAttachment homeAttachment--small"  style="background-image: url({$metaImage})">
+		<div class="container">
+			<h2 class="heading heading--center heading--white homeAttachment__heading">{$metaTitle}</h2>
+		</div>
+		</div>
+		<div class="newsList" data-aos="fade-up" data-aos-duration="1000">
+		<div class="container">
+			<div class="row" id="load_data">
+			{if $listNews}
+			{foreach $listNews as $itemNew}
+			<div class="col l-4 m-6 c-12">
+				<div class="homeNews__item">
+				<a href="{$itemNew->getUrl($lang)}" title="{$itemNew->getTitle($lang)}" class="homeNews__image">
+					<img src="/upload/1/articles/l_{$itemNew->getAvatar($lang)}" alt="{$itemNew->getTitle($lang)}" />
+					<div class="homeNews__date">
+					<div class="homeNews__date__top">{$itemNew->getDateCreated()|date_format:"%d"}</div>
+					{if $lang=='vn'}
+					<div class="homeNews__date__bot">TH{$itemNew->getDateCreated()|date_format:"%m"}</div>
+					{else}
+					<div class="homeNews__date__bot">{$itemNew->getDateCreated()|date_format:"%b"|upper}</div>
+					{/if}
+					</div>
+				</a>
+				<div class="homeNews__body">
+					<!-- <a class="homeNews__author">
+						<i class="fa-regular fa-user"></i>
+						<span>{$itemNew->getProperty('user_update')}</span>
+					</a> -->
+					<a href="{$itemNew->getUrl($lang)}" title="{$itemNew->getTitle($lang)}" class="homeNews__name"> {$itemNew->getTitle($lang)}  </a>
+					<div class="homeNews__desc">
+						{$itemNew->getSapo($lang)}
+					</div>
+					<div class="homeNews__line"></div>
+					<a href="{$itemNew->getUrl($lang)}" title="{$itemNew->getTitle($lang)}" class="homeNews__link"
+					>{$messages['view_more']} <i class="fa-solid fa-arrow-right"></i
+					></a>
+				</div>
+				</div>
+			</div>
+			{/foreach}
+			{/if}
+			</div>
+			<div class="pagination" id="pagination">
+			</div>
+		</div>
+		</div>
+	</main>
+	<input hidden id="fullUrl" value="{if $metaUrl}{$metaUrl}{/if}" >
+	<input hidden id="page" value="{if $page}{$page}{/if}" >
+{include file='footer.tpl.html' title='siteFooter'}
+<script>
+	// URL đầy đủ
+	var lang 	= $("#lang").val();
+	var fullUrl = $("#fullUrl").val();
+	var page 	= $("#page").val();
+	showData(page,lang)
+	function showData(page, lang) {
+		history.pushState(null, '', fullUrl+'&page='+page);
+		if (page) {
+		page = page;
+		} else {
+		page = 1;
+		}
+		let op = "news";
+		$.ajax({
+		type: "post",
+		url: "/ajax.php",
+		dataType: "json",
+		data: { op, page, lang},
+		success: function (jsonData) {
+			if (jsonData.arrayFinalHome) {
+			var html = "";
+			var htmlPagination = "";
+			jsonData.arrayFinalHome.forEach(function (item,index) {
+				var name        = item.name;
+				var slug        = item.slug;
+				var sapo        = item.sapo;
+				var avatar      = item.avatar;
+				var view_more   = item.view_more;
+				var day   		= item.day;
+				var month   	= item.month;
+				var author   	= item.author;
+				html+='<div class="col l-4 m-6 c-12">'
+					html+='<div class="homeNews__item">'
+					html+='<a href="'+ slug +'" title="'+ name +'" class="homeNews__image">'
+						html+='<img src="'+ avatar +'" alt="'+ name +'" />'
+						html+='<div class="homeNews__date">'
+						html+='<div class="homeNews__date__top">'+ day +'</div>'
+						html+='<div class="homeNews__date__bot">'+ month +'</div>'
+						html+='</div>'
+					html+='</a>'
+					html+='<div class="homeNews__body">'
+					// 	html+='<a class="homeNews__author">'
+					// 	html+='<i class="fa-regular fa-user"></i>'
+					// 	html+='<span>'+ author +'</span>'
+					//  html+='</a>'
+						html+='<a title="'+ name +'" href="'+ slug +'" class="homeNews__name"> '+ name +'</a>'
+						html+='<div class="homeNews__desc">'+ sapo +''
+						html+='</div>'
+						html+='<div class="homeNews__line"></div>'
+						html+='<a title="'+ name +'" href="'+ slug +'" class="homeNews__link"'
+						html+='>'+ view_more +'<i class="fa-solid fa-arrow-right"></i'
+						html+='></a>'
+					html+='</div>'
+					html+='</div>'
+				html+='</div>'
+
+			});
+			if( jsonData.rowsPages.pages > 1){
+				for (var i = 1; i <= jsonData.rowsPages.pages; i++) {
+					htmlPagination +='<a class="active-page-'+i+'" onclick="showData('+i+',\''+lang+'\')">' + i + '</a>';
+				}
+			}
+			$("#pagination").html(htmlPagination);
+			$("#load_data").html(html);
+			$(".active-page-" + page).addClass("active");
+			} else {
+			$("#pagination").html("");
+			$("#load_data").html("<br><br>" + jsonData);
+			}
+		},
+		});
+	}
+</script>

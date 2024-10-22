@@ -1,0 +1,67 @@
+// reset
+.reset-ul {
+    margin: 0;
+    list-style: none;
+    padding-left: 0;
+}
+.reset-a {
+    text-decoration: none;
+    display: inline-block;
+    color: $black-color;
+    transition: all ease 0.3s;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.limit-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.limit-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+.limit-4 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+}
+
+.reset-overflow {
+    /* width */
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: red;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: yellow;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: blue;
+    }
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

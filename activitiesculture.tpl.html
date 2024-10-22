@@ -1,0 +1,39 @@
+{include file='head.tpl.html' title='siteHead'}
+	{include file='loading.tpl.html' title='siteLoading'}
+	{include file='header.tpl.html' title='siteHeader'}
+	<main class="main">
+		<div class="homeAttachment homeAttachment--small"  style="background-image: url({$metaImage})">
+		<div class="container">
+			<h2 class="heading heading--center heading--white homeAttachment__heading">{$metaTitle}</h2>
+		</div>
+		</div>
+    {if $listNews}
+    {foreach $listNews as $itemNew}
+		<div class="activities" data-aos="fade-up" data-aos-duration="1000">
+		<h2 class="heading heading--center homeProduct__heading">
+			{$itemNew->getTitle($lang)}
+			<div class="heading__star">
+			<i class="fa-solid fa-star"></i>
+			</div>
+		</h2>
+		<div class="activities__library">
+			<div class="container no-gutter">
+			<div class="row">
+        {if $itemNew->getProperty('uphotos')}
+        {foreach $itemNew->getProperty('uphotos') as $key => $itemImage}
+				<div class="col l-4 m-6 c-12">
+				<a href="/upload/1/articles/l_{$itemImage}" data-fancybox="{$itemNew->getTitle($lang)}" data-caption="{$itemNew->getTitle($lang)} - hình {$key+1}">
+					<img src="/upload/1/articles/l_{$itemImage}" alt="img" />
+				</a>
+				</div>
+        {/foreach}
+        {/if}
+			
+			</div>
+			</div>
+		</div>
+		</div>
+    {/foreach}
+    {/if}
+	</main>
+{include file='footer.tpl.html' title='siteFooter'}

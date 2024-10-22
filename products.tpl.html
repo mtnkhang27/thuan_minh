@@ -1,0 +1,356 @@
+{include file='head.tpl.html' title='siteHead'}
+{include file='loading.tpl.html' title='siteLoading'}
+{include file='header.tpl.html' title='siteHeader'}
+
+<main class="main">
+  <div class="homeAttachment homeAttachment--small" style="background-image: url({$metaImage})">
+    <div class="container">
+      <h2 class="heading heading--center heading--white homeAttachment__heading">{$metaTitle}</h2>
+    </div>
+  </div>
+  <div class="productList" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+      {if $listProducts}
+        <div class="row"  id="load_data_layout1">
+          {foreach $listProducts as $item}
+          {if $item->getLayout() eq 1} 
+          <div class="col l-4 m-6 c-12">
+            <div class="product">
+              {if strtotime(date("Y-m-d")) >= strtotime($item->getProperty('date_appear'))}
+              <a title="{$item->getName($lang)} - {$item->getTrademarkThuanMinh($lang)}" href="{$item->getUrl($lang)}"
+                class="product__image">
+                <img src="/upload/1/products/l_{$item->getAvatar()}" alt="{$item->getName($lang)} - {$item->getTrademarkThuanMinh($lang)}" />
+              </a>
+              <div class="product__body">
+                <h3 class="product__name">
+                  <a href="{$item->getUrl($lang)}" title="{$item->getName($lang)} - {$item->getTrademarkThuanMinh($lang)}">{$item->getName($lang)} - {$item->getTrademarkThuanMinh($lang)}</a>
+                </h3>
+                <div class="product__desc">
+                  {$item->getSapo($lang)}
+                </div>
+               
+                <a href="{$item->getUrl($lang)}" title="{$item->getName($lang)} - {$item->getTrademarkThuanMinh($lang)}"
+                  class="product__link btn">
+                  <span>{$messages['buy']}</span>
+                </a>
+                
+              </div>
+              {else}
+              <a title="{$item->getName($lang)} - {$item->getTrademarkThuanMinh($lang)}" 
+                class="product__image">
+                <img src="/upload/1/products/l_{$item->getAvatar()}" alt="{$item->getName($lang)} - {$item->getTrademarkThuanMinh($lang)}" />
+              </a>
+              <div class="product__body">
+                <h3 class="product__name">
+                  <a  title="{$item->getName($lang)} - {$item->getTrademarkThuanMinh($lang)}">{$item->getName($lang)} - {$item->getTrademarkThuanMinh($lang)}</a>
+                </h3>
+                <div class="product__desc">
+                  {$item->getSapo($lang)}
+                </div>
+               
+                <a title="{$item->getName($lang)} - {$item->getTrademarkThuanMinh($lang)}"
+                  class="product__link btn">
+                  <span>{$messages['coming_soon']}</span>
+                </a>
+                
+              </div>
+            
+              {/if}
+             
+            </div>
+          </div>
+          {/if}
+          {/foreach}
+        </div>
+        <div class="row"  id="load_data_layout2">
+          {foreach $listProducts as $item}
+          {if $item->getLayout() eq 2} 
+          <div class="col l-4 m-6 c-12">
+            <div class="product">
+              {if strtotime(date("Y-m-d")) >= strtotime($item->getProperty('date_appear'))}
+              <a title="{$item->getName($lang)}" href="{$item->getUrl($lang)}" class="product__image product__image--edit">
+                <img src="/upload/1/products/l_{$item->getAvatar()}" alt="{$item->getName($lang)}" />
+              </a>
+              <div class="product__body">
+                <h3 class="product__name product__name--center">
+                  <a href="{$item->getUrl($lang)}" title="{$item->getName($lang)}">{$item->getName($lang)}</a>
+                </h3>
+                
+                <a href="{$item->getUrl($lang)}" title="{$item->getName($lang)}" class="product__link product__link--center btn">
+                  <span>{$messages['buy']}</span>
+                </a>
+              </div>
+               
+              {else}
+              <a title="{$item->getName($lang)}"  class="product__image product__image--edit">
+                <img src="/upload/1/products/l_{$item->getAvatar()}" alt="{$item->getName($lang)}" />
+              </a>
+              <div class="product__body">
+                  <h3 class="product__name product__name--center">
+                    <a title="{$item->getName($lang)}">{$item->getName($lang)}</a>
+                  </h3>
+                <a  title="{$item->getName($lang)}" class="product__link product__link--center btn">
+                  <span>{$messages['coming_soon']}</span>
+                </a>
+              </div>
+              {/if}
+            </div>
+          </div>
+          {/if}
+          {/foreach}
+        </div>
+     
+      <div class="pagination" id="pagination">
+      </div>
+      {else}
+        {$messages['updating_product']}
+      {/if}
+    </div>
+  </div>
+  {if $productCate->getContent($lang,'one') != "" || $productCate->getContent($lang,'two') != "" || $productCate->getContent($lang,'three') != "" || $productCate->getContent($lang,'four') != "" || $productCate->getContent($lang,'five') != ""}
+  <div class="homeArticle homeArticle--mar" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+      <div class="row">
+        <div class="col l-6 m-12 c-12">
+          <h2 class="homeArticle__title">{$messages['why_choose_dongviet']}</h2>
+          {if $productCate->getContent($lang,'one')}
+          <div class="homeArticle__flex">
+            <div class="homeArticle__icon">
+              <i class="fa-regular fa-gem"></i>
+            </div>
+            <span>
+              {$productCate->getContent($lang,'one')}
+            </span>
+          </div>
+          {/if}
+          {if $productCate->getContent($lang,'two')}
+          <div class="homeArticle__flex">
+            <div class="homeArticle__icon">
+              <i class="fa-solid fa-shield"></i>
+            </div>
+            <span> {$productCate->getContent($lang,'two')}</span>
+          </div>
+          {/if}
+          {if $productCate->getContent($lang,'three')}
+              
+          <div class="homeArticle__flex">
+            <div class="homeArticle__icon">
+              <i class="fa-solid fa-square-plus"></i>
+            </div>
+            <span>
+              {$productCate->getContent($lang,'three')}
+            </span>
+          </div>
+          {/if}
+          {if $productCate->getContent($lang,'four')}
+          <div class="homeArticle__flex">
+            <div class="homeArticle__icon">
+              <i class="fa-solid fa-earth-americas"></i>
+            </div>
+            <span>
+              {$productCate->getContent($lang,'four')}
+            </span>
+          </div>
+          {/if}
+          {if $productCate->getContent($lang,'five')}
+          <div class="homeArticle__flex">
+            <div class="homeArticle__icon">
+              <i class="fa-solid fa-handshake"></i>
+            </div>
+            <span>{$productCate->getContent($lang,'five')} </span>
+          </div>
+          {/if}
+      
+  
+        </div>
+        <div class="col l-6 m-12 c-12">
+          <div class="homeArticle__image">
+            <img src="/upload/1/products/l_{$productCate->getProperty('image_description')}" alt="image" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {/if}
+  <div class="productCard" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+      <div class="row">
+        {if $productCate->getQuality($lang, 1)}
+        <div class="col l-3 m-6 c-6">
+          <div class="productCard__item">
+            <i class="fa-solid fa-leaf"></i>
+            {$productCate->getQuality($lang, 1)}
+          </div>
+        </div>
+        {/if}
+        {if $productCate->getQuality($lang, 2)}
+        <div class="col l-3 m-6 c-6">
+          <div class="productCard__item">
+            <i class="fa-solid fa-bowl-food"></i>
+            {$productCate->getQuality($lang, 2)}
+          </div>
+        </div>
+        {/if}
+        {if $productCate->getQuality($lang, 3)}
+        <div class="col l-3 m-6 c-6">
+          <div class="productCard__item">
+            <i class="fa-solid fa-flask"></i>
+           {$productCate->getQuality($lang, 3)}
+          </div>
+        </div>
+        {/if}
+        {if $productCate->getQuality($lang, 4)}
+        <div class="col l-3 m-6 c-6">
+          <div class="productCard__item">
+            <i class="fa-solid fa-wheat-awn-circle-exclamation"></i>
+            {$productCate->getQuality($lang, 4)}
+          </div>
+        </div>
+        {/if}
+      </div>
+    </div>
+  </div>
+  <input hidden value="{$productCate->getId()}" id="catId">
+</main>
+
+{include file='footer.tpl.html' title='siteFooter'}
+<script>
+	var lang     = $("#lang").val();
+	var catId     = $("#catId").val();
+	showData(catId,1,lang);
+	function showData(catId,page, lang) {
+		if (page) {
+		page = page;
+		} else {
+		page = 1;
+		}
+		let op = "products";
+		$.ajax({
+		type: "post",
+		url: "/ajax.php",
+		dataType: "json",
+		data: { op,catId, page, lang},
+		success: function (jsonData) {
+			if (jsonData.arrayFinalHome) {
+			var htmlPagination = "";
+      var htmlLayOut1 = "";
+			var htmlLayOut2 = "";
+			jsonData.arrayFinalHome.forEach(function (item,index) {
+				var name        = item.name;
+				var brand       = item.brand;
+				var slug        = item.slug;
+				var sapo        = item.sapo;
+				var avatar      = item.avatar;
+				var buy         = item.buy;
+				var layout   = item.layout;
+				var start   = item.start;
+        
+        if(layout==1){
+          htmlLayOut1 +='<div class="col l-4 m-6 c-12">'
+            htmlLayOut1 +='<div class="product">'
+              if(start==1){
+                htmlLayOut1 +=' <a title="'+name+' - '+brand+'" href="'+slug+'"'
+              htmlLayOut1 +=' class="product__image">'
+              htmlLayOut1 +=' <img src="'+avatar+'" alt="'+name+' - '+brand+'" />'
+              htmlLayOut1 +='</a>'
+              htmlLayOut1 +='<div class="product__body">'
+                htmlLayOut1 +='<h3 class="product__name">'
+                htmlLayOut1 +=' <a href="'+slug+'" title="'+name+' - '+brand+'">'+name+' - '+brand+'</a>'
+                htmlLayOut1 +='</h3>'
+                htmlLayOut1 +='<div class="product__desc">'+sapo+''
+                htmlLayOut1 +='</div>'
+              
+                htmlLayOut1 +='<a href="'+slug+'" title="'+name+' - '+brand+'"'
+                htmlLayOut1 +=' class="product__link btn">'
+                htmlLayOut1 +=' <span>'+buy+'</span>'
+                htmlLayOut1 +='</a>'
+               
+             
+            htmlLayOut1 +=' </div>'
+               }else{
+                htmlLayOut1 +=' <a title="'+name+' - '+brand+'" '
+              htmlLayOut1 +=' class="product__image">'
+              htmlLayOut1 +=' <img src="'+avatar+'" alt="'+name+' - '+brand+'" />'
+              htmlLayOut1 +='</a>'
+              htmlLayOut1 +='<div class="product__body">'
+                htmlLayOut1 +='<h3 class="product__name">'
+                htmlLayOut1 +=' <a  title="'+name+' - '+brand+'">'+name+' - '+brand+'</a>'
+                htmlLayOut1 +='</h3>'
+                htmlLayOut1 +='<div class="product__desc">'+sapo+''
+                htmlLayOut1 +='</div>'
+              
+                htmlLayOut1 +='<a title="'+name+' - '+brand+'"'
+                htmlLayOut1 +=' class="product__link btn">'
+                htmlLayOut1 +=' <span>'+buy+'</span>'
+                htmlLayOut1 +='</a>'
+               
+             
+            htmlLayOut1 +=' </div>'
+           
+               }
+          
+            htmlLayOut1 +='</div>'
+          htmlLayOut1 +=' </div>'
+        }else{
+          htmlLayOut2 +='<div class="col l-4 m-6 c-12">'
+           htmlLayOut2 +='<div class="product">'
+            if(start==1){
+              htmlLayOut2 +='<a title="'+name+'" href="'+slug+'" class="product__image product__image--edit">'
+               htmlLayOut2 +='<img src="'+avatar+'" alt="'+name+'" />'
+             htmlLayOut2 +='</a>'
+             htmlLayOut2 +='<div class="product__body">'
+               htmlLayOut2 +='<h3 class="product__name product__name--center">'
+                 htmlLayOut2 +='<a href="'+slug+'" title="'+name+'">'+name+'</a>'
+               htmlLayOut2 +='</h3>'
+               
+                htmlLayOut2 +='<a href="'+slug+'" title="'+name+'" class="product__link product__link--center btn">'
+                htmlLayOut2 +=' <span>'+buy+'</span>'
+               htmlLayOut2 +='</a>'
+               
+            
+             htmlLayOut2 +='</div>'
+              }else{
+                htmlLayOut2 +='<a title="'+name+'"  class="product__image product__image--edit">'
+               htmlLayOut2 +='<img src="'+avatar+'" alt="'+name+'" />'
+             htmlLayOut2 +='</a>'
+             htmlLayOut2 +='<div class="product__body">'
+               htmlLayOut2 +='<h3 class="product__name product__name--center">'
+                 htmlLayOut2 +='<a  title="'+name+'">'+name+'</a>'
+               htmlLayOut2 +='</h3>'
+               
+               htmlLayOut2 +='<a title="'+name+'" class="product__link product__link--center btn">'
+                htmlLayOut2 +=' <span>'+buy+'</span>'
+               htmlLayOut2 +='</a>'
+               
+            
+             htmlLayOut2 +='</div>'
+             
+               }
+            
+           htmlLayOut2 +='</div>'
+         htmlLayOut2 +='</div>'
+        }
+     
+
+
+      
+
+			});
+			if( jsonData.rowsPages.pages > 1){
+				for (var i = 1; i <= jsonData.rowsPages.pages; i++) {
+					htmlPagination +='<a class="active-page-'+i+'" onclick="showData('+catId+','+i+',\''+lang+'\')">' + i + '</a>';
+				}
+			}
+			$("#pagination").html(htmlPagination);
+			$("#load_data_layout1").html(htmlLayOut1);
+			$("#load_data_layout2").html(htmlLayOut2);
+			$(".active-page-" + page).addClass("active");
+			} else {
+			$("#pagination").html("");
+			$("#load_data_layout1").html("<br><br>" + jsonData);
+			$("#load_data_layout2").html("<br><br>" + jsonData);
+			}
+		},
+		});
+	}
+</script>

@@ -1,0 +1,64 @@
+{include file='head.tpl.html' title='siteHead'}
+	{include file='loading.tpl.html' title='siteLoading'}
+	{include file='header.tpl.html' title='siteHeader'}
+
+<main class="main">
+    <!-- <div class="breadcrumb" style="background-image: url({$estore->getProperty('banner_header')})">
+        <div class="breadcrumb__body">
+        <h2>{$messages['search']}</h2>
+       
+      </div>
+    </div> -->
+        <input hidden value="{$estore->getProperty('custom_qty_panagition')}" id="number_page">
+        <section class="section-search">
+            <div class="container">
+            <h2 class="section-search__heading">{$messages['search']}</h2>
+            <div class="section-search__description">
+                <!-- {$locale->msg('show_results')} <strong> 1-{$numpro} </strong> {$messages['in']} <strong>{$rowsPages.rows|number_format}</strong> -->
+                {$locale->msg('show_results')} <strong id="searchDetail"> </strong>  {$messages['in']} <strong id="searchPage">1</strong>
+
+            </div>
+            <form id="search_page" class="section-search__form">
+                <input placeholder="{$messages['search']}..." type="text" class="section-search__input" value="{$result}" />
+                <button class="section-search__submit">{$messages['search']}</button>
+            </form>
+            <div class="section-search__list">
+                {if $arrayFinalHome}
+                {foreach $arrayFinalHome as $item}
+                <div class="section-search__item">
+                <h4 class="section-search__title">
+                    <a href="{if $item['files']}/upload/1/articles/{$item['files']}{else}{$item['slug']}{/if}">
+                        {$item['name']}
+                    </a>
+                </h4>
+                <div class="section-search__content">
+                    {$item['sapo']}
+                </div>
+                </div>
+                {/foreach}
+                {else}
+                {$messages['no_data_search']}
+                {/if}
+            </div>
+
+            <div class="pagination section-search__pagination">
+
+            </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        document.getElementById("search_page").addEventListener("submit", function(event) {
+            event.preventDefault(); // Chặn hành vi mặc định của form
+            var lang = document.getElementById('lang').value;
+            var searchTerm = document.querySelector(".section-search__input").value;
+            if(searchTerm){
+                if(lang=='vn'){
+                    window.location.href = "/SearchResults/q=" + encodeURIComponent(searchTerm);
+                }else{
+                    window.location.href = '/'+lang+"/SearchResults/q=" + encodeURIComponent(searchTerm);
+                }
+            }
+        });
+    </script>
+{include file='footer.tpl.html' title='siteFooter'}

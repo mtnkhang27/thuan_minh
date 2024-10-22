@@ -1,0 +1,41 @@
+.wave {
+    &--rotate {
+        transform: rotate(180deg);
+    }
+    &--footer {
+        svg {
+            height: 100px;
+            @include mobile {
+                height: 40px;
+            }
+        }
+        path {
+            fill: $primary-color;
+        }
+    }
+    &--banner {
+        svg {
+            height: 148px;
+            @include mobile {
+                height: 56px;
+            }
+        }
+        path {
+            fill: $primary-color;
+        }
+    }
+    &--about {
+        svg {
+            height: 100px;
+            @include mobile {
+                height: 46px;
+            }
+        }
+        path {
+            fill: #277b3e59;
+        }
+    }
+    svg {
+        width: 100%;
+    }
+}

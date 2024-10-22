@@ -1,0 +1,130 @@
+{include file='head.tpl.html' title='siteHead'}
+	{include file='loading.tpl.html' title='siteLoading'}
+	{include file='header.tpl.html' title='siteHeader'}
+    <main class="main">
+    <div class="homeAttachment homeAttachment--small"  style="background-image: url({$metaImage})">
+        <div class="container">
+            <h2 class="heading heading--center heading--white homeAttachment__heading">{$metaTitle}</h2>
+        </div>
+    </div>
+    <div class="contact" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container">
+        <div class="row">
+            <div class="col l-5 m-12 c-12">
+            <div class="contact__list">
+                <div class="contact__item">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <div class="contact__body">
+                    <div class="contact__label">{$messages['address']} </div>
+                    <a href="#map" class="contact__text"
+                    >{$estore->getAddress($lang)}</a
+                    >
+                </div>
+                </div>
+                <div class="contact__item">
+                <i class="fa-solid fa-phone-volume"></i>
+                <div class="contact__body">
+                    <div class="contact__label">{$messages['tel']} </div>
+                    <a href="tel: {$estore->getTel()}" class="contact__text">{$estore->getTel()}</a>
+                </div>
+                </div>
+                <div class="contact__item">
+                <i class="fa-regular fa-envelope"></i>
+                <div class="contact__body">
+                    <div class="contact__label">Email</div>
+                    <a href="mailTo: {$estore->getEmail()}" class="contact__text">{$estore->getEmail()}</a>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="col l-7 m-12 c-12">
+            <form class="contactForm" id="contact-form">
+                <h2 class="contactForm__heading">{$messages['send_message']}</h2>
+                <div class="aboutContact__group">
+                <div class="aboutContact__field">
+                    <input data-required="{$messages['error_fullname']}" placeholder="{$messages['full_name']}" type="text" name="fullname" id="fullname" />
+                    <i class="fa-regular fa-user"></i>
+                </div>
+                <div class="aboutContact__error" id="fullnameError"></div>
+                </div>
+                <div class="aboutContact__group">
+                <div class="aboutContact__field">
+                    <input data-required="{$messages['error_email']}" placeholder="Email" type="email" name="email" id="email" />
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+                <div class="aboutContact__error" id="emailError"></div>
+                </div>
+                <div class="aboutContact__group">
+                <div class="aboutContact__field">
+                    <input data-required="{$messages['error_phone']}" placeholder="{$messages['tel']}" type="number" name="phone" id="phone" />
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+                <div class="aboutContact__error" id="phoneError"></div>
+                </div>
+                <div class="aboutContact__group">
+                <div class="aboutContact__field">
+                    <input data-required="{$messages['error_content']}" placeholder="{$messages['content']}" type="text" name="title" id="title" />
+                    <i class="fa-solid fa-inbox"></i>
+                </div>
+                <div class="aboutContact__error" id="titleError"></div>
+                </div>
+                <div class="aboutContact__group">
+                <div class="aboutContact__field">
+                    <textarea data-required="{$messages['error_message']}" placeholder="{$messages['message']}" name="message" id="message"></textarea>
+                    <i class="fa-solid fa-inbox"></i>
+                </div>
+                <div class="aboutContact__error" id="messageError"></div>
+                </div>
+                <button class="aboutContact__submit btn btn--big btn--second">
+                <span>{$messages['send']}</span>
+                </button>
+            </form>
+            </div>
+        </div>
+        </div>
+        <iframe
+        id="map"
+        class="contact__map"
+        src="{$estore->getProperty('custom_link_google_map')}"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+    </div>
+    </main>
+
+ 
+{include file='footer.tpl.html' title='siteFooter'}
+  
+<script>
+    var lang = $("#lang").val();
+    function saveData() {
+        var fullname = $("#fullname").val();
+        var phone = $("#phone").val();
+        var email = $("#email").val();
+        var title = $("#title").val();
+        var content = $("#message").val();
+
+        let op = "contact";
+        $.ajax({
+        type: "post",
+        url: "/ajax.php",
+        dataType: "json",
+        data: { op, fullname, phone, email, title, content, lang},
+        success: function (data) {
+            if(data){
+                showNotification(data)
+                document.getElementById('fullname').value = '';
+                document.getElementById('phone').value = '';
+                document.getElementById('mail').value = '';
+                document.getElementById('title').value = '';
+                document.getElementById('content').value = '';
+                document.getElementById('code').value = '';
+            }
+        },
+        });
+    }
+</script>

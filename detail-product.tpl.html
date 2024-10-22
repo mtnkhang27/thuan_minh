@@ -1,0 +1,127 @@
+{include file='head.tpl.html' title='siteHead'}
+{include file='loading.tpl.html' title='siteLoading'}
+{include file='header.tpl.html' title='siteHeader'}
+
+<main class="main">
+  <div class="detailProduct" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+      <div class="row">
+        <div class="col l-6 m-12 c-12">
+          {if $product->getPhotos()}
+          <div class="detailProduct__slider">
+            {foreach $product->getPhotos() as $photo}
+            <a href= "/upload/1/products/l_{$photo}" data-fancybox="slider" data-caption="/upload/1/products/l_{$photo}">
+              <img src="/upload/1/products/l_{$photo}" alt="image" />
+            </a>
+            {/foreach}
+          </div>
+          {/if}
+        </div>
+        <div class="col l-6 m-12 c-12">
+          <div class="detailProduct__info">
+            <h1 class="detailProduct__name">{$product->getName($lang)}</h1>
+            <a href= "{$product->getLinkProduct()}" class="detailProduct__buy btn btn--radius">
+              <span><i class="fa-solid fa-cart-shopping"></i> {$messages['buy']}</span>
+            </a>
+            <div class="detailProduct__line"></div>
+            <div class="detailProduct__label">{$messages['certification']}</div>
+            <div class="detailProduct__images">
+              {if $product->getCertification()}
+              {foreach $product->getCertification() as $image}
+              <img src="/upload/1/products/l_{$image}" alt="logo" />
+
+              {/foreach}
+              {/if}
+            </div>
+            <div class="detailProduct__line"></div>
+            <div class="detailProduct__label">{$messages['description']}</div>
+            <div class="detailProduct__desc">
+              {$product->getSapo($lang)}
+            </div>
+          </div>
+        </div>
+        <div class="col l-12 m-12 c-12">
+          {if $product->getDetailThuanMinh($lang, 'information') != ''}
+          <div class="detailProduct__line"></div>
+          <div class="detailProduct__tab">
+            <div class="detailProduct__tab__top">
+              <span>{$messages['detail_information']}</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="detailProduct__tab__dropdown">
+              {$product->getDetailThuanMinh($lang, 'information')}
+            </div>
+          </div>
+          {/if}
+
+          {if $product->getDetailThuanMinh($lang, 'uses') != ''}
+          <div class="detailProduct__line"></div>
+          <div class="detailProduct__tab">
+            <div class="detailProduct__tab__top">
+              <span>{$messages['detail_uses']}</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="detailProduct__tab__dropdown">
+              {$product->getDetailThuanMinh($lang, 'uses')}
+            </div>
+          </div>
+          {/if}
+
+          {if $product->getDetailThuanMinh($lang, 'ingredients') != ''}
+          <div class="detailProduct__line"></div>
+          <div class="detailProduct__tab">
+            <div class="detailProduct__tab__top">
+              <span>{$messages['detail_ingredients']} </span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="detailProduct__tab__dropdown">
+              {$product->getDetailThuanMinh($lang, 'ingredients')}
+            </div>
+          </div>
+          {/if}
+
+          {if $product->getDetailThuanMinh($lang, 'how_to_use')}
+          <div class="detailProduct__line"></div>
+          <div class="detailProduct__tab">
+            <div class="detailProduct__tab__top">
+              <span>{$messages['detail_how_to_use']}</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="detailProduct__tab__dropdown">
+              {$product->getDetailThuanMinh($lang, 'how_to_use')}
+            </div>
+          </div>
+          {/if}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="homeProduct" data-aos="fade-up" data-aos-duration="1000" style="background-image: url(/img/service_bg_1.png)">
+    <div class="container">
+      {if $similarProducts}
+      <h2 class="heading heading--center homeProduct__heading">
+        {$messages['similar_products']}
+        <div class="heading__star">
+          <i class="fa-solid fa-star"></i>
+        </div>
+      </h2>
+      <div class="homeProduct__list">
+      {foreach $similarProducts as $similarProduct}
+      
+        <div class="homeProduct__item {if $similarProduct->getLayout()==2}product__image--edit{/if}">
+          <img src="/upload/1/products/l_{$similarProduct->getAvatar()}" alt="product" class="homeProduct__image" />
+          <h3 class="homeProduct__name">{$similarProduct->getName($lang)}</h3>
+          <a href="{$similarProduct->getUrl($lang)}" class="homeProduct__link"
+            >{$messages['view_more']}  <i class="fa-solid fa-arrow-right"></i
+          ></a>
+        </div>
+    
+      {/foreach}
+      </div>
+      {/if}
+    </div>
+  </div>
+</main>
+
+
+{include file='footer.tpl.html' title='siteFooter'}

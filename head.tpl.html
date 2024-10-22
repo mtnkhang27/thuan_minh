@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{if $metaTitle}{$metaTitle|strip_tags}{/if}</title>
+        <link rel="shortcut icon" type=image/x-icon href="{$estore->getProperty('store_logo')}">
+        <meta name="description" content="{if $metaDescription}{$metaDescription|strip_tags}{else}{$estore->getDescription()}{/if}" />
+        <meta name="keywords" content="{if $metaKeywords}{$metaKeywords|strip_tags}{else}{$estore->getKeywords()}{/if}">
+        <meta property="og:locale" content="vi_VN" />
+        {if $currentUrlx1}
+        <link rel="canonical" href="{$currentUrlx1}" />
+        <meta property="og:url" content="{$currentUrlx1}" />
+        {/if}
+        <meta property="og:type" content="{if $typeweb}{$typeweb}{else}website{/if}" />
+        <meta property="og:title" content="{if $metaTitle}{$metaTitle|strip_tags}{/if}" />
+        <meta property="og:description" content="{if $metaDescription}{$metaDescription|strip_tags}{else}{$estore->getDescription()}{/if}" />
+        {if $metaImage}
+        <meta property="og:image" content="{if $metaImage}{$metaImage}{else}{$estore->getProperty('store_logo')}{/if}" />
+        {else}
+        <meta property="og:image" content="{$estore->getProperty('store_logo')}" />
+        {/if}
+        <meta property="og:image:alt" content="image-item" />
+        <meta property="og:image:width" content="384" />
+        <meta property="og:image:height" content="384" />
+        <meta property="og:site_name" content="{if $metaTitle}{$metaTitle|strip_tags}{/if}" />
+        {include file='css.tpl.html' title='siteCSS'}
+        <div id="fb-root"></div>
+        <script
+            async
+            defer
+            crossorigin="anonymous"
+            src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v20.0&appId=1081198556312834"
+            nonce="bIN73uAW"
+        ></script>
+    </head>
+<body>

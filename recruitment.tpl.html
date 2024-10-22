@@ -1,0 +1,142 @@
+{include file='head.tpl.html' title='siteHead'}
+	{include file='loading.tpl.html' title='siteLoading'}
+	{include file='header.tpl.html' title='siteHeader'}
+    <main class="main">
+    <div class="homeAttachment homeAttachment--small"  style="background-image: url({$metaImage})">
+        <div class="container">
+            <h2 class="heading heading--center heading--white homeAttachment__heading">{$metaTitle}</h2>
+        </div>
+    </div>
+    <div class="recruitment" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+        <div class="row" id="load_data">
+		{if $listNews}
+		{foreach $listNews as $itemNew}
+        <div class="col l-6 m-12 c-12">
+            <div class="recruitment__item">
+            <div class="recruitment__icon">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <div class="recruitment__body">
+                <div class="recruitment__flex">
+                <div class="recruitment__name">{$itemNew->getTitle($lang)} </div>
+                <a href="{$itemNew->getUrl($lang)}" class="recruitment__link btn">
+                    <span>{$messages['recruitment']}</span>
+                </a>
+                </div>
+                <div class="recruitment__flex">
+                <div class="recruitment__detail">
+                    <i class="fa-solid fa-business-time"></i>
+                    {$messages['form']}: {$itemNew->getForm($lang)}
+                </div>
+                <div class="recruitment__detail">
+                    <i class="fa-solid fa-maximize"></i>
+                    {$messages['experience']}: {$itemNew->getExperience($lang)}
+                </div>
+                <div class="recruitment__detail">
+                    <i class="fa-solid fa-location-dot"></i>
+                    {$messages['address']}: {$itemNew->getAddress($lang)}
+                </div>
+                <div class="recruitment__detail">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    {$messages['income']}: {$itemNew->getIncome($lang)}
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+		{/foreach}
+		{/if}
+        </div>
+        <div class="pagination" id="pagination">
+        </div>
+    </div>
+    </div>
+    </main>
+    <input hidden id="fullUrl" value="{if $metaUrl}{$metaUrl}{/if}" >
+	<input hidden id="page" value="{if $page}{$page}{/if}" >
+{include file='footer.tpl.html' title='siteFooter'}
+<script>
+	var lang 	= $("#lang").val();
+	var fullUrl = $("#fullUrl").val();
+	var page 	= $("#page").val();
+	showData(page,lang)
+	function showData(page, lang) {
+		history.pushState(null, '', fullUrl+'&page='+page);
+		if (page) {
+		page = page;
+		} else {
+		page = 1;
+		}
+		let op = "recruitment";
+		$.ajax({
+		type: "post",
+		url: "/ajax.php",
+		dataType: "json",
+		data: { op, page, lang},
+		success: function (jsonData) {
+			if (jsonData.arrayFinalHome) {
+			var html = "";
+			var htmlPagination = "";
+			jsonData.arrayFinalHome.forEach(function (item,index) {
+				var name            = item.name;
+				var slug            = item.slug;
+				var sapo            = item.sapo;
+				var getForm         = item.getForm;
+				var getExperience   = item.getExperience;
+				var getAddress      = item.getAddress;
+				var getIncome       = item.getIncome;
+				var recruitment     = item.recruitment;
+				var form            = item.form;
+				var experience      = item.experience;
+				var address         = item.address;
+				var income          = item.income;
+                
+                html+='<div class="col l-6 m-12 c-12">'
+                    html+='<div class="recruitment__item">'
+                    html+='<div class="recruitment__icon">'
+                        html+='<i class="fa-solid fa-user-tie"></i>'
+                    html+='</div>'
+                    html+='<div class="recruitment__body">'
+                        html+='<div class="recruitment__flex">'
+                        html+='<div class="recruitment__name">'+name+' </div>'
+                        html+='<a href="'+slug+'" class="recruitment__link btn">'
+                            html+='<span>'+recruitment+'</span>'
+                        html+='</a>'
+                        html+='</div>'
+                        html+='<div class="recruitment__flex">'
+                        html+='<div class="recruitment__detail">'
+                            html+='<i class="fa-solid fa-business-time"></i> '+form+': '+getForm+''
+                           
+                        html+='</div>'
+                        html+='<div class="recruitment__detail">'
+                            html+='<i class="fa-solid fa-maximize"></i> '+experience+': '+getExperience+''
+                        html+='</div>'
+                        html+='<div class="recruitment__detail">'
+                            html+='<i class="fa-solid fa-location-dot"></i> '+address+': '+getAddress+''
+                        html+='</div>'
+                        html+='<div class="recruitment__detail">'
+                            html+='<i class="fa-solid fa-dollar-sign"></i> '+income+': '+getIncome+''
+                        html+='</div>'
+                        html+='</div>'
+                    html+='</div>'
+                    html+='</div>'
+                html+='</div>'
+
+			});
+			if( jsonData.rowsPages.pages > 1){
+				for (var i = 1; i <= jsonData.rowsPages.pages; i++) {
+					htmlPagination +='<a class="active-page-'+i+'" onclick="showData('+i+',\''+lang+'\')">' + i + '</a>';
+				}
+			}
+			$("#pagination").html(htmlPagination);
+			$("#load_data").html(html);
+			$(".active-page-" + page).addClass("active");
+			} else {
+			$("#pagination").html("");
+			$("#load_data").html("<br><br>" + jsonData);
+			}
+		},
+		});
+	}
+</script>

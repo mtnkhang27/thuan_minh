@@ -1,0 +1,49 @@
+{include file='head.tpl.html' title='siteHead'}
+	{include file='loading.tpl.html' title='siteLoading'}
+	{include file='header.tpl.html' title='siteHeader'}
+    {if $newInfo}
+      <main class="main">
+        <div class="detailRecruitment">
+          <div class="detailRecruitment__top">
+            <div class="container">
+              <div class="detailRecruitment__flex">
+                <div class="detailRecruitment__name">{$newInfo->getTitle($lang)}</div>
+                <a href="{if $lang=='vn'}/lien-he.html{else}/{$lang}/contact.html{/if}" class="detailRecruitment__link btn  btn--white btn--radius"
+                  ><span>{$messages['contact']}</span></a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="detailRecruitment__body" data-aos="fade-up" data-aos-duration="1000">
+            <div class="container">
+              <div class="row">
+                <div class="col l-8 m-12 c-12">
+                  {$newInfo->getDetails($lang)}
+                </div>
+                <div class="col l-4 m-12 c-12">
+                  <div class="detailRecruitment__sidebar">
+                    <div class="recruitment__detail">
+                      <i class="fa-solid fa-business-time"></i>
+                      {$messages['form']}: {$newInfo->getForm($lang)}
+                    </div>
+                    <div class="recruitment__detail">
+                      <i class="fa-solid fa-maximize"></i>
+                      {$messages['experience']}: {$newInfo->getExperience($lang)}
+                    </div>
+                    <div class="recruitment__detail">
+                      <i class="fa-solid fa-location-dot"></i>
+                      {$messages['address']}: {$newInfo->getAddress($lang)}
+                    </div>
+                    <div class="recruitment__detail">
+                      <i class="fa-solid fa-dollar-sign"></i>
+                      {$messages['income']}: {$newInfo->getIncome($lang)}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    {/if}
+{include file='footer.tpl.html' title='siteFooter'}

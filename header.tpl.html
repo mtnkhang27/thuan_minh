@@ -1,0 +1,137 @@
+<input hidden id="lang" value="{$lang}">
+<div class="wrapper">
+    <header class="header">
+        <div class="header__sticky">
+        <a href="/{if $lang!='vn'}{$lang}{/if}" class="header__logo">
+            <img src="{$estore->getProperty('store_logo')}" alt="logo" />
+        </a>
+        <div class="header__body">
+            <div class="header__top">
+            <div class="header__container">
+                <div class="header__flex">
+                <div class="header__contact">
+                    <a href="tel: {$estore->getTel()}" class="header__contact__item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span> <strong>{$messages['tel']}:</strong> {$estore->getTel()} </span>
+                    </a>
+                    <a href="mailTo: {$estore->getTel()}" class="header__contact__item">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                    <span> <strong>Email:</strong> {$estore->getEmail()} </span>
+                    </a>
+                </div>
+                <div class="header__social">
+                    <a href="{$estore->getProperty('custom_fb')}" target="_blank" class="header__social__item">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="{$estore->getProperty('custom_twitter')}" target="_blank" class="header__social__item">
+                    <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="{$estore->getProperty('custom_instagram')}" target="_blank" class="header__social__item">
+                    <i class="fa-brands fa-square-instagram"></i>
+                    </a>
+                    <a href="{$estore->getProperty('custom_youtube')}" target="_blank" class="header__social__item">
+                    <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="header__bars">
+            <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="header__modal"></div>
+            <div class="header__bot">
+            <div class="header__bot__close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="header__container">
+                <div class="header__flex">
+                <nav class="header__menu">
+                    <ul>
+                        {if $arrayListMenu}
+                        {foreach $arrayListMenu as $itemMenu}
+                        {if $itemMenu['id']!=53}
+                        <li {if $itemMenu['id']==$activeMenu} class="active" {/if}>
+                            <a href="{$itemMenu['url']}">{$itemMenu['name']}
+                            {if $itemMenu['Lmenu2']}
+                            <i class="fa-solid fa-angle-down"></i></a>
+                            <div class="header__dropdown">
+                                <ul>
+                                    {foreach $itemMenu['Lmenu2'] as $itemMenu2}
+                                    <li {if $itemMenu2['id']==$activeMenuChild} class="active" {/if}>
+                                    <a href="{$itemMenu2['url']}">{$itemMenu2['name']}</a>
+                                    </li>
+                                    {/foreach}
+                                </ul>
+                            </div>
+                            {else}
+                            </a>
+                            {/if}
+                        </li>
+                        {/if}
+                        {/foreach}
+                        {/if}
+                    </ul>
+                </nav>
+                <div class="header__language">
+                    {if $listLanguages}
+                        {foreach $listLanguages as $itemLang}
+                            {if $itemLang->getPrefix()=='vn'}
+                            <a href="{if $changeUrlLang}{$changeUrlLang}{else}{if $menuUrl}{$menuUrl->getUrl(vn)}{elseif $articleInfoNew}{$articleInfoNew->getUrl($itemLang->getPrefix())}{/if}{/if}" class="header__language__item">
+                            {else}
+                            <a href="{if $changeUrlLang}/{$itemLang->getPrefix()}{$changeUrlLang}{else}{if $menuUrl}/{$itemLang->getPrefix()}{$menuUrl->getUrl($itemLang->getPrefix())}{elseif $articleInfoNew}{$articleInfoNew->getUrl($itemLang->getPrefix())}{/if}{/if}" class="header__language__item">
+                            {/if}
+
+                            <img src="{$itemLang->getImage()}" alt="lang_{$itemLang->getPrefix()}" />
+                            <span>{$itemLang->getName()}</span>
+                            </a>
+                        {/foreach}
+                    {/if}
+                </div>
+                <div class="header__search">
+                    <div class="header__search__icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="header__search__text">{$messages['search']}</span>
+                    </div>
+                    <div class="header__search__popup">
+                    <div class="header__search__block">
+                        <form id="header__search" class="header__search__form">
+                        <input
+                            placeholder="{$messages['search']}"
+                            type="text"
+                            name="search"
+                            id="search"
+                            class="header__search__field"
+                        />
+                        </form>
+                        <div class="header__search__close">
+                        <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <a href="{if $lang=='vn'}/lien-he.html{else}/{$lang}/contact.html{/if}" class="header__contact btn btn--radius">
+                    <span> {$messages['contact']} </span>
+                </a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <script>
+        document.getElementById("header__search").addEventListener("submit", function(event) {
+            event.preventDefault(); // Chặn hành vi mặc định của form
+            var lang = document.getElementById('lang').value;
+            var searchTerm = document.querySelector(".header__search__field").value;
+            if(searchTerm){
+                if(lang=='vn'){
+                    window.location.href = "/SearchResults/q=" + encodeURIComponent(searchTerm);
+                }else{
+                    window.location.href = '/'+lang+"/SearchResults/q=" + encodeURIComponent(searchTerm);
+                }
+            }
+        });
+    </script>

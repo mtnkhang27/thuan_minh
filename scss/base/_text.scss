@@ -1,0 +1,71 @@
+.label {
+    text-transform: uppercase;
+    color: $primary-color;
+    font-size: 18px;
+    font-family: mon-700;
+    display: flex;
+    align-items: center;
+    img {
+        margin-right: 16px;
+    }
+    @include mobile {
+        font-size: 14px;
+    }
+}
+
+.heading {
+    font-size: 45px;
+    margin: 0;
+    font-family: mon-700;
+    position: relative;
+    width: fit-content;
+    @include tablet-mobile{
+        font-size: 32px;
+    }
+    @include mobile{
+        font-size: 26px;
+    }
+    &--white{
+        color: $white-color;
+    }
+    &--center{
+        text-align: center;
+        margin: auto;
+    }
+    &__star{
+        position: absolute;
+        top: calc(100% + 10px);
+        width: 100%;
+        color: $primary-color;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &::before {
+            content: "";
+            width: calc(50% - 20px);
+            height: 2px;
+            background-color: $primary-color;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+        }
+        &::after {
+            content: "";
+            width: calc(50% - 20px);
+            height: 2px;
+            background-color: $primary-color;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+        }
+    }
+    &--big{
+        font-size: 56px;
+        @include mobile{
+            font-size: 36px;
+        }
+    }
+}

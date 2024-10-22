@@ -1,0 +1,220 @@
+{include file='head.tpl.html' title='siteHead'}
+	{include file='loading.tpl.html' title='siteLoading'}
+	{include file='header.tpl.html' title='siteHeader'}
+	<main class="main">
+	{include file='banner-home.tpl.html' title='sitebannerHome'}
+	{if $aboutUs}
+	<div class="homeArticle" data-aos="fade-up" data-aos-duration="1000">
+		<div class="container">
+		<div class="row">
+			<div class="col l-6 m-12 c-12">
+			<div class="homeArticle__image">
+				<img
+				src="/upload/{$storeId}/resources/l_{$aboutUs->getImage($lang)}"
+				alt="image"
+				/>
+			</div>
+			</div>
+			<div class="col l-6 m-12 c-12">
+			<div class="homeArticle__label">
+				<img src="/{$templatePath}/{$userTemplate}/img/title_left.svg" alt="title_left" />
+				{$messages['about_us']}
+			</div>
+			<h2 class="homeArticle__title">
+				{$aboutUs->getTitle($lang)}
+				<div class="homeArticle__star">
+				<i class="fa-solid fa-star"></i>
+				</div>
+			</h2>
+			<div class="homeArticle__desc">
+				{$aboutUs->getSapo($lang)}
+			</div>
+			{if $lang=='vn'}
+			<a href="/gioi-thieu-doanh-nghiep.html" class="homeArticle__link btn btn--big"> <span>{$messages['view_more']}</span></a>
+			{else}
+			<a href="/{$lang}/enterprise-introduction.html" class="homeArticle__link btn btn--big"> <span>{$messages['view_more']}</span></a>
+			{/if}
+			</div>
+		</div>
+		</div>
+	</div>
+	{/if}
+	<div class="homeCard" data-aos="fade-up" data-aos-duration="1000">
+		<div class="container">
+		<div class="homeCard__list">
+			<div class="homeCard__item">
+			<img src="/{$templatePath}/{$userTemplate}/img/about_1_1.svg" alt="about_1_1" />
+			<strong>{$messages['quality']}</strong>
+			</div>
+			<div class="homeCard__item">
+			<img src="/{$templatePath}/{$userTemplate}/img/about_1_2.svg" alt="about_1_2" />
+			<strong>{$messages['fast']}</strong>
+			</div>
+		</div>
+		</div>
+	</div>
+	<div class="wave wave--rotate wave--banner">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2600 131.1" preserveAspectRatio="none">
+		<path class="elementor-shape-fill" d="M0 0L2600 0 2600 69.1 0 0z"></path>
+		<path class="elementor-shape-fill" style="opacity: 0.5" d="M0 0L2600 0 2600 69.1 0 69.1z"></path>
+		<path class="elementor-shape-fill" style="opacity: 0.25" d="M2600 0L0 0 0 130.1 2600 69.1z"></path>
+		</svg>
+	</div>
+	{if $productHome}
+	<div class="homeProduct" data-aos="fade-up" data-aos-duration="1000" style="background-image: url(/{$templatePath}/{$userTemplate}/img/service_bg_1.png)">
+		<div class="container">
+		<div class="label homeProduct__label">
+			<img src="/{$templatePath}/{$userTemplate}/img/title_left.svg" alt="title_left" />
+			{$messages['OUR_PRODUCTS']}
+		</div>
+		<h2 class="heading heading--center homeProduct__heading">{$messages['Special_products']}
+			<div class="heading__star">
+			<i class="fa-solid fa-star"></i>
+			</div>
+		</h2>
+		<div class="homeProduct__list">
+			{foreach $productHome as $itemProduct}
+			<div class="homeProduct__item">
+			<img src="/upload/1/products/l_{$itemProduct->getAvatar()}" alt="{$itemProduct->getName($lang)}" class="homeProduct__image" />
+			<h3 class="homeProduct__name">{$itemProduct->getName($lang)}</h3>
+			<a href="{$itemProduct->getUrl($lang)}" title="{$itemProduct->getName($lang)}" class="homeProduct__link"
+				>{$messages['view_more']} <i class="fa-solid fa-arrow-right"></i
+			></a>
+			</div>
+			{/foreach}
+		</div>
+		</div>
+	</div>
+	{/if}
+	<div class="homeAttachment"  style="background-image: url({$estore->getProperty('banner_we_product')})">
+		<div class="container" data-aos="fade-up" data-aos-duration="1000">
+		<h2 class="heading heading--center heading--white homeAttachment__heading">
+			{$estore->getNews($lang)}
+		</h2>
+		<div class="homeAttachment__flex">
+			{if $productCate}
+			<a href="{if $lang=='vn'}{else}/{$lang}{/if}/{$productCate->getSlug($lang)}.html" class="homeAttachment__link btn btn--icon">
+			<span> {$messages['view_more']}! </span>
+			{/if}
+			<i class="fa-regular fa-paper-plane"></i>
+			</a>
+			<a href="{if $lang=='vn'}/lien-he.html{else}/{$lang}/contact.html{/if}" class="homeAttachment__link btn btn--second btn--big">
+			<span> {$messages['contact']} <i class="fa-solid fa-arrow-right"></i></span>
+			</a>
+		</div>
+		</div>
+	</div>
+	{if $listBannerProcessTMI}
+	<div class="homeProcess" data-aos="fade-up" data-aos-duration="1000" style="background-image: url(/{$templatePath}/{$userTemplate}/img/map.png)">
+		<div class="container">
+		<h2 class="heading heading--center homeProcess__heading">{$messages['Production_Process']}
+			<div class="heading__star">
+			<i class="fa-solid fa-star"></i>
+			</div>
+		</h2>
+		<div class="homeProcess__line" style="background-image: url(/{$templatePath}/{$userTemplate}/img/line-3.svg)">
+			{foreach $listBannerProcessTMI as $keyTMI => $itemBannerTMI}
+			{if $keyTMI < 3}
+				<div class="homeProcess__item">
+				<div class="homeProcess__icon">
+					<img src="/upload/1/resources/l_{$itemBannerTMI->getImage('vn')}" alt="{$itemBannerTMI->getSapo($lang)}" class="homeProcess__image" />
+					<div class="homeProcess__num">0{$itemBannerTMI->getPosition()}</div>
+				</div>
+				<div class="homeProcess__name">{$itemBannerTMI->getSapo($lang)}</div>
+				</div>	
+			{/if}
+			{/foreach}
+		</div>
+		<div class="homeProcess__line" style="background-image: url(/{$templatePath}/{$userTemplate}/img/line-3.svg)">
+			{foreach $listBannerProcessTMI as $keyTMI => $itemBannerTMI}
+			{if $keyTMI > 2}
+			<div class="homeProcess__item">
+			<div class="homeProcess__icon">
+				<img src="/upload/1/resources/l_{$itemBannerTMI->getImage('vn')}" alt="{$itemBannerTMI->getSapo($lang)}" class="homeProcess__image" />
+				<div class="homeProcess__num">0{$itemBannerTMI->getPosition()}</div>
+			</div>
+			<div class="homeProcess__name">{$itemBannerTMI->getSapo($lang)}</div>
+			</div>
+			{/if}
+			{/foreach}
+		</div>
+		</div>
+	</div>
+	{/if}
+	<div class="homeAttachment"  style="background-image: url({$estore->getProperty('banner_support_customer')})">
+		<div class="container" data-aos="fade-up" data-aos-duration="1000">
+		<h2 class="heading heading--big heading--center heading--white homeAttachment__heading">
+			{$estore->getWhyChoose($lang)}
+		</h2>
+		<div class="homeAttachment__flex">
+			<a href="{if $lang=='vn'}/lien-he.html{else}/{$lang}/contact.html{/if}" class="homeAttachment__link btn btn--second btn--big">
+			<span>{$messages['contact']}<i class="fa-solid fa-arrow-right"></i></span>
+			</a>
+		</div>
+		</div>
+	</div>
+	{if $articleHome}
+	<div class="homeNews" data-aos="fade-up" data-aos-duration="1000">
+		<div class="container">
+		<div class="homeNews__flex">
+			<h2 class="heading homeNews__heading">
+			{$messages['Recent_posts_and_news']}
+			<div class="heading__star">
+				<i class="fa-solid fa-star"></i>
+			</div>
+			</h2>
+			<a href="{if $lang=='vn'}/tin-tuc.html{else}/{$lang}/news.html{/if}" class="btn btn--big">
+			<span>{$messages['view_all']}<i class="fa-solid fa-arrow-right"></i></span>
+			</a>
+		</div>
+		<div class="homeNews__list">
+			{foreach $articleHome as $itemArticle}
+			<div class="homeNews__item">
+			<a href="{$itemArticle->getUrl($lang)}" title="{$itemArticle->getTitle($lang)}" class="homeNews__image">
+				<img src="/upload/1/articles/l_{$itemArticle->getAvatar($lang)}" alt="{$itemArticle->getTitle($lang)}" />
+				<div class="homeNews__date">
+				<div class="homeNews__date__top">{$itemArticle->getDateCreated()|date_format:"%d"}</div>
+				{if $lang=='vn'}
+				<div class="homeNews__date__bot">TH{$itemArticle->getDateCreated()|date_format:"%m"}</div>
+				{else}
+				<div class="homeNews__date__bot">{$itemArticle->getDateCreated()|date_format:"%b"|upper}</div>
+				{/if}
+				</div>
+			</a>
+			<div class="homeNews__body">
+				<!-- <a class="homeNews__author">
+				<i class="fa-regular fa-user"></i>
+				<span>{$itemArticle->getProperty('user_upload')}</span>
+				</a> -->
+				<a href="{$itemArticle->getUrl($lang)}" title="{$itemArticle->getTitle($lang)}" class="homeNews__name"> {$itemArticle->getTitle($lang)} </a>
+				<div class="homeNews__line"></div>
+				<a title="{$itemArticle->getTitle($lang)}" href="{$itemArticle->getUrl($lang)}" class="homeNews__link"
+				>{$messages['view_more']} <i class="fa-solid fa-arrow-right"></i
+				></a>
+			</div>
+			</div>
+			{/foreach}
+		</div>
+		</div>
+	</div>
+	{/if}
+	</main>
+	<div class="wave wave--footer wave--rotate">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+        <path
+            class="elementor-shape-fill"
+            opacity="0.33"
+            d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7 c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z"
+        ></path>
+        <path
+            class="elementor-shape-fill"
+            opacity="0.66"
+            d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1 s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z"
+        ></path>
+        <path
+            class="elementor-shape-fill"
+            d="M766.1,28.9c-200-57.5-266,65.5-395.1,19.5C242,1.8,242,5.4,184.8,20.6C128,35.8,132.3,44.9,89.9,52.5C28.6,63.7,0,0,0,0 h1000c0,0-9.9,40.9-83.6,48.1S829.6,47,766.1,28.9z"
+        ></path>
+        </svg>
+    </div>
+{include file='footer.tpl.html' title='siteFooter'}

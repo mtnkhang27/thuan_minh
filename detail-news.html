@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="link logo" />
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="./css/slick.css" />
+    <link rel="stylesheet" href="./css/font-awesome.css" />
+    <link rel="stylesheet" href="./css/fancybox.css" />
+    <link rel="stylesheet" href="./css/library.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v20.0&appId=1081198556312834"
+      nonce="bIN73uAW"
+    ></script>
+  </head>
+  <body>
+    <div class="loading"></div>
+    <a href="#" class="to-top"><i class="fa-solid fa-arrow-up"></i></a>
+    <div class="contactFixed">
+      <a href="#" class="contactFixed__item contactFixed__item--fb">
+        <svg class="e-font-icon-svg e-fab-facebook-f" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+          ></path>
+        </svg>
+      </a>
+      <a title="0901800274" href="tel: 0901800274" class="contactFixed__item contactFixed__item--phone">
+        <svg class="e-font-icon-svg e-fas-phone-alt" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"
+          ></path>
+        </svg>
+      </a>
+      <a href="#" class="contactFixed__item contactFixed__item--shopee">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          id="Layer_1"
+          x="0px"
+          y="0px"
+          viewBox="0 0 362 535.3"
+          style="enable-background: new 0 0 362 535.3"
+          xml:space="preserve"
+        >
+          <style type="text/css">
+            .st0 {
+              fill: #ea501f;
+            }
+            .st1 {
+              fill: #ffffff;
+            }
+          </style>
+          <path
+            class="st0"
+            d="M11.2,482.1c-1.6-1.1-2.1-3.3-1-5c1.1-1.6,3.3-2.1,5-1c1,0.7,2.1,1.4,3.3,2.1c8.2,5,15.9,7.5,22.2,7.5 c5.7,0,10.4-2.2,13.3-6.5v0c0.2-0.3,0.4-0.5,0.4-0.7c0.8-1.4,1.5-2.8,1.9-4.2c0.8-2.9,0.7-5.9-0.5-8.6c-1.2-2.9-3.7-5.6-7.5-7.9l0,0 c-2.5-1.5-5.7-2.9-9.5-4c-9.7-2.7-16.8-6.6-20.7-11.7c-4.2-5.7-4.5-12.5,0-20.8c3-5.5,9.1-8.9,16.9-9.5c6.7-0.5,14.8,1.1,23,5.3 c1.8,0.9,2.5,3.1,1.6,4.8c-0.9,1.8-3.1,2.5-4.8,1.6c-7-3.6-13.7-4.9-19.2-4.5c-5.3,0.4-9.4,2.5-11.1,5.8c-3,5.5-3,9.8-0.5,13.1 c2.8,3.8,8.7,6.8,16.8,9.1c4.4,1.2,8.1,2.9,11.2,4.8h0c5.1,3.1,8.5,7,10.3,11.2c1.9,4.3,2.1,9,0.8,13.4c-0.6,2-1.5,4.1-2.7,6 c-0.3,0.4-0.5,0.8-0.6,1l0,0c-4.3,6.4-11.1,9.6-19.3,9.6c-7.6,0-16.5-2.8-25.9-8.5C13.7,483.7,12.5,483,11.2,482.1z"
+          ></path>
+          <path
+            class="st0"
+            d="M75.1,415.2c0-1.9,1.6-3.4,3.6-3.4c2,0,3.6,1.5,3.6,3.4v74.3c0,1.9-1.6,3.4-3.6,3.4c-2,0-3.6-1.5-3.6-3.4V415.2 z"
+          ></path>
+          <path
+            class="st0"
+            d="M82.5,461.5c-1.3,1.5-3.5,1.8-5.1,0.5c-1.5-1.3-1.8-3.5-0.5-5.1c5.5-6.7,11.7-10.8,17.8-12.6 c4.4-1.3,8.7-1.4,12.4-0.4c3.9,1.1,7.3,3.3,9.7,6.7c2.3,3.2,3.6,7.3,3.6,12.2v26.6c0,2-1.6,3.6-3.6,3.6c-2,0-3.6-1.6-3.6-3.6v-26.6 c0-3.4-0.8-6.1-2.2-8.1c-1.4-1.9-3.3-3.2-5.7-3.9c-2.5-0.7-5.4-0.6-8.5,0.3C92,452.6,87,456,82.5,461.5z"
+          ></path>
+          <path
+            class="st0"
+            d="M155.7,443.2c6.9,0,13.1,2.8,17.6,7.3l0,0c4.5,4.5,7.3,10.7,7.3,17.6c0,6.9-2.8,13.1-7.3,17.6 c-4.5,4.5-10.7,7.3-17.6,7.3s-13.1-2.8-17.6-7.3v0c-4.5-4.5-7.3-10.7-7.3-17.6c0-6.9,2.8-13.1,7.3-17.6v0 C142.6,446,148.9,443.2,155.7,443.2L155.7,443.2z M168.3,455.5c-3.2-3.2-7.7-5.2-12.6-5.2c-4.9,0-9.3,2-12.6,5.2l0,0 c-3.2,3.2-5.2,7.7-5.2,12.6c0,4.9,2,9.4,5.2,12.6l0,0c3.2,3.2,7.7,5.2,12.6,5.2s9.3-2,12.6-5.2c3.2-3.2,5.2-7.7,5.2-12.6 C173.5,463.2,171.5,458.7,168.3,455.5z"
+          ></path>
+          <path
+            class="st0"
+            d="M190.8,446.8c0-2,1.6-3.6,3.6-3.6c2,0,3.6,1.6,3.6,3.6v4.5c0.3-0.3,0.5-0.6,0.8-0.8v0 c4.5-4.5,10.7-7.3,17.6-7.3c6.9,0,13.1,2.8,17.6,7.3l0,0c4.5,4.5,7.3,10.7,7.3,17.6c0,6.9-2.8,13.1-7.3,17.6 c-4.5,4.5-10.7,7.3-17.6,7.3s-13.1-2.8-17.6-7.3v0c-0.3-0.3-0.5-0.6-0.8-0.8v32.7c0,2-1.6,3.6-3.6,3.6c-2,0-3.6-1.6-3.6-3.6V446.8 L190.8,446.8z M228.9,455.5c-3.2-3.2-7.7-5.2-12.6-5.2c-4.9,0-9.3,2-12.6,5.2l0,0c-3.2,3.2-5.2,7.7-5.2,12.6c0,4.9,2,9.4,5.2,12.6 l0,0c3.2,3.2,7.7,5.2,12.6,5.2c4.9,0,9.3-2,12.6-5.2c3.2-3.2,5.2-7.7,5.2-12.6C234.1,463.2,232.1,458.7,228.9,455.5z"
+          ></path>
+          <path
+            class="st0"
+            d="M275.1,443.2c6.1,0,11.7,2.4,15.8,6.6c3.4,3.4,4.8,6.8,6,10.4c3.1,10.1-2.8,9.7-4.6,9.7h-33.1 c0.3,2.4,0.9,4.6,1.6,6.6c1.3,3.1,3.2,5.4,5.6,7c2.5,1.6,5.7,2.4,9.4,2.4c4,0,8.7-1.1,13.9-3.3c1.8-0.8,3.9,0.1,4.7,1.9 s-0.1,3.9-1.9,4.7c-6,2.5-11.6,3.7-16.6,3.8c-5.1,0.1-9.6-1.1-13.3-3.5c-3.7-2.4-6.9-5.7-8.4-10.3c-3.4-10.1-3.5-20.1,5.1-29.4 C263.3,445.5,269,443.2,275.1,443.2L275.1,443.2z M285.9,454.9c-2.9-2.8-6.7-4.5-10.8-4.5c-4.1,0-7.9,1.7-10.8,4.5 c-2.1,2.1-3.8,4.7-4.7,7.7h31.1C289.6,459.6,288,457,285.9,454.9z"
+          ></path>
+          <path
+            class="st0"
+            d="M329.7,443.2c6.1,0,11.7,2.4,15.8,6.6c3.4,3.4,4.8,6.8,6,10.4c3.1,10.1-2.8,9.7-4.6,9.7h-33.1 c0.3,2.4,0.9,4.6,1.6,6.6c1.3,3.1,3.2,5.4,5.6,7c2.5,1.6,5.7,2.4,9.4,2.4c4,0,8.7-1.1,13.9-3.3c1.8-0.8,3.9,0.1,4.7,1.9 c0.8,1.8-0.1,3.9-1.9,4.7c-6,2.5-11.6,3.7-16.6,3.8c-5.1,0.1-9.6-1.1-13.3-3.5c-3.7-2.4-6.9-5.7-8.4-10.3 c-3.4-10.1-3.5-20.1,5.1-29.4C317.9,445.5,323.6,443.2,329.7,443.2L329.7,443.2z M340.5,454.9c-2.9-2.8-6.7-4.5-10.8-4.5 c-4.1,0-7.9,1.7-10.8,4.5c-2.1,2.1-3.8,4.7-4.7,7.7h31.1C344.2,459.6,342.6,457,340.5,454.9z"
+          ></path>
+          <path
+            class="st0"
+            d="M36.5,118.1h75.3c2.3-25.5,9.4-48.4,19.6-66.1c13.5-23.4,32.7-37.8,54.4-37.8c21.7,0,40.8,14.5,54.4,37.8 c10.2,17.6,17.3,40.6,19.6,66.1H335c8.9,0,16.9,7.3,16.2,16.2L336.1,345c-1.9,26.4-18.5,41.5-42.6,41.5H78.1 c-26.8,0-41-18.7-42.6-41.5L20.3,134.4C19.7,125.5,27.6,118.1,36.5,118.1L36.5,118.1z M130.6,118.1h110.2 c-2.2-22.1-8.3-41.7-17-56.7C213.8,43.9,200.2,33,185.8,33c-14.5,0-28,10.9-38.2,28.5C138.9,76.4,132.9,96.1,130.6,118.1z"
+          ></path>
+          <path
+            class="st1"
+            d="M131.1,312.6c-3.5-2.4-4.4-7.1-2-10.6c2.4-3.5,7.1-4.4,10.6-2c2.2,1.5,4.5,3,7,4.5c17.6,10.7,33.8,16,47.3,16 c12.2,0,22.1-4.6,28.4-13.9v0c0.4-0.7,0.8-1.1,0.9-1.4c1.8-2.9,3.1-6,4-9c1.8-6.2,1.5-12.6-1-18.4c-2.7-6.1-7.9-12-16-16.9l0,0 c-5.4-3.3-12.1-6.2-20.2-8.4c-20.6-5.8-35.8-14-44-25c-9-12.1-9.7-26.7-0.1-44.4c6.4-11.7,19.5-19,36.1-20.3 c14.3-1.1,31.5,2.3,49,11.2c3.8,1.9,5.3,6.5,3.3,10.3s-6.5,5.3-10.3,3.3c-14.9-7.6-29.1-10.5-40.9-9.6c-11.3,0.9-19.9,5.3-23.7,12.3 c-6.4,11.7-6.3,20.9-1.1,27.9c6,8.1,18.5,14.4,35.9,19.3c9.4,2.7,17.4,6.1,24,10.1h0c10.9,6.6,18.2,14.9,22.1,23.9 c4,9.3,4.5,19.1,1.8,28.7c-1.2,4.3-3.1,8.6-5.7,12.8c-0.6,0.9-1,1.6-1.3,2.1l0,0c-9.3,13.7-23.6,20.5-41,20.6 c-16.3,0-35.3-6-55.3-18.2C136.4,316.1,133.8,314.5,131.1,312.6z"
+          ></path>
+        </svg>
+      </a>
+      <a href="#" class="contactFixed__item contactFixed__item--lazada">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="655"
+          viewBox="0.009585083740359046 -0.2904727140967629 410.2744149162596 70.53637576188969"
+          width="2500"
+        >
+          <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="-.001" x2="66.758" y1=".5" y2="-.017">
+            <stop offset="0" stop-color="#ffb900"></stop>
+            <stop offset=".338" stop-color="#f38000"></stop>
+            <stop offset=".567" stop-color="#f83c72"></stop>
+            <stop offset=".78" stop-color="#fc1cbe"></stop>
+            <stop offset=".93" stop-color="#fe08ed"></stop>
+            <stop offset="1" stop-color="#f0f"></stop>
+          </linearGradient>
+          <linearGradient id="b" gradientUnits="userSpaceOnUse" x1="18.754" x2="86.818" y1="49.006" y2="11.32">
+            <stop offset="0" stop-color="#ee0a3f"></stop>
+            <stop offset="1" stop-color="#ee0a3f" stop-opacity="0"></stop>
+          </linearGradient>
+          <linearGradient id="c" gradientUnits="userSpaceOnUse" x1="41.793" x2="75.037" y1="39.349" y2="12.569">
+            <stop offset="0" stop-color="#ed6600"></stop>
+            <stop offset="1" stop-color="#f98200"></stop>
+          </linearGradient>
+          <g fill="#000083" stroke-linecap="square" stroke-linejoin="bevel">
+            <path
+              d="M167.682 15.038h9.294v44.717h16.02v8.827h-25.275zM214.519 28.453a15.75 15.75 0 0 1 12.619 6.066V29.25h8.67v39.41h-8.67V63.39a15.75 15.75 0 0 1-12.62 6.066c-10.81 0-19.014-9.235-19.014-20.511 0-11.277 8.205-20.493 19.015-20.493m1.575 7.894c-7.019 0-11.666 5.522-11.666 12.599s4.724 12.618 11.666 12.618c6.941 0 11.666-5.522 11.666-12.618 0-7.097-4.648-12.6-11.666-12.6M242.555 61.816l20.667-24.691h-20.357V29.25h31.555v6.941l-20.588 24.595h21.055v7.874h-32.332zM296.935 28.453a15.748 15.748 0 0 1 12.618 6.066V29.25h8.671v39.41h-8.671V63.39a15.748 15.748 0 0 1-12.618 6.066c-10.81 0-18.996-9.235-18.996-20.511 0-11.277 8.187-20.493 18.996-20.493m1.575 7.894c-7.02 0-11.666 5.522-11.666 12.599s4.725 12.618 11.666 12.618 11.665-5.522 11.665-12.618c0-7.097-4.646-12.6-11.665-12.6M342.994 28.453a15.692 15.692 0 0 1 12.599 6.066V11.87h8.67v56.79h-8.67v-5.268a15.692 15.692 0 0 1-12.599 6.066c-10.81 0-19.015-9.235-19.015-20.511 0-11.277 8.205-20.493 19.015-20.493m1.574 7.894c-7.019 0-11.665 5.522-11.665 12.599s4.744 12.618 11.665 12.618c6.923 0 11.666-5.522 11.666-12.618 0-7.097-4.647-12.6-11.666-12.6M389.033 28.453a15.69 15.69 0 0 1 12.599 6.066V29.25h8.652v39.41h-8.69V63.39a15.692 15.692 0 0 1-12.6 6.066c-10.81 0-19.014-9.235-19.014-20.511 0-11.277 8.243-20.493 19.053-20.493m1.576 7.894c-7.02 0-11.667 5.522-11.667 12.599s4.744 12.618 11.667 12.618c6.92 0 11.665-5.522 11.665-12.618 0-7.097-4.648-12.6-11.665-12.6"
+            ></path>
+          </g>
+          <path
+            d="M33.737 54.716c-.479.003-.95-.12-1.366-.355-3.565-2.063-29.967-18.617-30.964-19.122A2.39 2.39 0 0 1 .04 33.327v-23.22A2.513 2.513 0 0 1 1.175 7.95l.19-.109C3.92 6.256 12.47 1.038 13.823.287A2.05 2.05 0 0 1 14.847 0c.338.004.67.088.97.246 0 0 11.964 7.799 13.795 8.495a9.438 9.438 0 0 0 4.097.86 9.178 9.178 0 0 0 4.59-1.12C40.087 7.54 51.52.288 51.642.288c.288-.174.62-.264.956-.26.361.002.715.101 1.024.287 1.557.86 12.156 7.348 12.607 7.635a2.458 2.458 0 0 1 1.188 2.131V33.3a2.363 2.363 0 0 1-1.365 1.912c-.997.546-27.317 17.1-30.95 19.122a2.732 2.732 0 0 1-1.366.382"
+            fill="url(#a)"
+            transform="translate(-.049) scale(1.96487)"
+          ></path>
+          <path
+            d="M33.6 54.716h.137c.478.003.95-.12 1.365-.355 3.565-2.063 29.954-18.617 30.95-19.122a2.363 2.363 0 0 0 1.366-1.912v-23.22a2.484 2.484 0 0 0-.259-1.133L33.6 27.399z"
+            fill="url(#b)"
+            transform="translate(-.049) scale(1.96487)"
+          ></path>
+          <path
+            d="M33.6 54.716h.137c.478.003.95-.12 1.365-.355 3.565-2.063 29.954-18.617 30.95-19.122a2.363 2.363 0 0 0 1.366-1.912v-23.22a2.484 2.484 0 0 0-.259-1.133L33.6 27.399z"
+            fill="url(#c)"
+            transform="matrix(-1.94394 0 0 1.94394 131.058 .502)"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__sticky">
+          <a href="/" class="header__logo">
+            <img src="./img/Logo_TMC_New.png" alt="logo" />
+          </a>
+          <div class="header__body">
+            <div class="header__top">
+              <div class="header__container">
+                <div class="header__flex">
+                  <div class="header__contact">
+                    <a href="tel: (84-8) 28 38 339 536" class="header__contact__item">
+                      <i class="fa-solid fa-phone"></i>
+                      <span> <strong>Phone:</strong> (84-8) 28 38 339 536 </span>
+                    </a>
+                    <a href="mailTo: info@thuanminh.com.vn" class="header__contact__item">
+                      <i class="fa-solid fa-envelope-open-text"></i>
+                      <span> <strong>Email:</strong> info@thuanminh.com.vn </span>
+                    </a>
+                  </div>
+                  <div class="header__social">
+                    <a href="#" class="header__social__item">
+                      <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="header__social__item">
+                      <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#" class="header__social__item">
+                      <i class="fa-brands fa-square-instagram"></i>
+                    </a>
+                    <a href="#" class="header__social__item">
+                      <i class="fa-brands fa-youtube"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="header__bars">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="header__modal"></div>
+            <div class="header__bot">
+              <div class="header__bot__close">
+                <i class="fa-solid fa-xmark"></i>
+              </div>
+              <div class="header__container">
+                <div class="header__flex">
+                  <nav class="header__menu">
+                    <ul>
+                      <li>
+                        <a href="/">Trang chủ</a>
+                      </li>
+                      <li>
+                        <a href="./about.html">Về chúng tôi <i class="fa-solid fa-angle-down"></i></a>
+                        <div class="header__dropdown">
+                          <ul>
+                            <li>
+                              <a href="./about.html">Giới Thiệu Doanh Nghiệp</a>
+                            </li>
+                            <li>
+                              <a href="./about.html">Triết Lý Kinh Doanh</a>
+                            </li>
+                            <li>
+                              <a href="./about.html">Tầm Nhìn – Sứ Mệnh</a>
+                            </li>
+                            <li>
+                              <a href="./about.html">Các Đối Tác Nổi Bật</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <a href="./product.html">Sản Phẩm <i class="fa-solid fa-angle-down"></i></a>
+                        <div class="header__dropdown">
+                          <ul>
+                            <li>
+                              <a href="./product.html">Sản Phẩm Nội Địa</a>
+                            </li>
+                            <li>
+                              <a href="./product.html">Sản Phẩm Xuất Khẩu</a>
+                            </li>
+                            <li>
+                              <a href="./product.html">Sản Phẩm B2B</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="active">
+                        <a href="./news.html">Tin Tức <i class="fa-solid fa-angle-down"></i></a>
+                        <div class="header__dropdown">
+                          <ul>
+                            <li class="active">
+                              <a href="./news.html">Tin Tức</a>
+                            </li>
+                            <li>
+                              <a href="./news.html">Hoạt Động – Văn Hóa</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <a href="./recruitment.html">Tuyển dụng</a>
+                      </li>
+                    </ul>
+                  </nav>
+                  <div class="header__language">
+                    <a href="#" class="header__language__item">
+                      <img src="./img/vn.png" alt="vietnam" />
+                      <span>Tiếng Việt</span>
+                    </a>
+                    <a href="#" class="header__language__item">
+                      <img src="./img/en.png" alt="english" />
+                      <span>English</span>
+                    </a>
+                  </div>
+                  <div class="header__search">
+                    <div class="header__search__icon">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <span class="header__search__text">Tìm kiếm</span>
+                    </div>
+                    <div class="header__search__popup">
+                      <div class="header__search__block">
+                        <form class="header__search__form">
+                          <input
+                            placeholder="Tìm kiếm"
+                            type="text"
+                            name="search"
+                            id="search"
+                            class="header__search__field"
+                          />
+                        </form>
+                        <div class="header__search__close">
+                          <i class="fa-solid fa-xmark"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <a href="./contact.html" class="header__contact btn btn--radius">
+                    <span> LIÊN HỆ </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <div class="detailNews" data-aos="fade-up" data-aos-duration="1000">
+          <div class="container">
+            <div class="row">
+              <div class="col l-8 m-12 c-12">
+                <div class="detailNews__body">
+                  <h1 class="detailNews__name">Công ty Xuất Nhập Khẩu Thuận Minh Góp</h1>
+                  <div class="detailNews__flex">
+                    <a href="./news.html" class="homeNews__author">
+                      <i class="fa-regular fa-user"></i>
+                      <span>Bởi Nguyen Cuong</span>
+                    </a>
+                    <span class="homeNews__author">
+                      <i class="fa-regular fa-calendar-days"></i>
+                      <span>24/07/2024</span>
+                    </span>
+                  </div>
+                  <div class="detailNews__content">
+                    <p>
+                      Để tạo dựng niềm tin và giá trị cao cho thị trường trong nước, thương hiệu gạo Đồng Việt của Thuận
+                      Minh mang đến cho người tiêu dùng dòng sản phẩm gạo cao cấp, sạch, thơm dẻo, mang hương vị đồng
+                      quê Việt Nam.
+                    </p>
+                    <p>
+                      15 năm chinh phục và học tập những điều hay từ đấu trường quốc tế, Thuận Minh tiếp tục mục tiêu
+                      phục vụ 100 triệu người tiêu dùng Việt tại thị trường nội địa qua các kênh hiện đại là hệ thống
+                      siêu thị và các đại lý gạo truyền thống tại các tỉnh thành, đưa các loại gạo chất lượng thương
+                      hiệu Đồng Việt đến tay người tiêu dùng.
+                    </p>
+                    <p>
+                      <img
+                        loading="lazy"
+                        decoding="async"
+                        class="alignnone wp-image-3628"
+                        src="https://thuanminh.com.vn/wp-content/uploads/2024/02/IMG-98662.jpg"
+                        alt=""
+                        width="998"
+                        height="748"
+                      />
+                    </p>
+                    <div id="MiddleContent-01" class="adv-components init-adv"></div>
+                    <figure class="figure-images init-img">
+                      <figcaption>Sản phẩm thương hiệu gạo Đồng Việt tại Co op Extra Sư Vạn Hạnh, TP.HCM</figcaption>
+                    </figure>
+                    <p>
+                      Với mục tiêu xây dựng thương hiệu gạo Đồng Việt chất lượng cao, Ông Phạm Văn Thịnh, Phó Tổng Giám
+                      đốc Công ty cổ phần xuất nhập khẩu Thuận Minh chia sẻ: “Mong muốn của chúng tôi là xây dựng thương
+                      hiệu gạo có tính “bền vững” đến từ chất lượng ưu việt qua sự đầu tư về công nghệ canh tác để giống
+                      lúa có năng suất tốt và chất lượng ngon đến tay người tiêu dùng. Và tính “lâu dài” đến từ tầm nhìn
+                      chiến lược kênh phân phối, lực lượng bán hàng, đầu tư cho sức mạnh thương hiệu để phát triển đường
+                      dài và góp phần đưa thương hiệu Đồng Việt của Thuận Minh trở thành thuơng hiệu mạnh trong ngành
+                      sản xuất gạo tại Việt Nam”
+                    </p>
+                    <div id="MiddleContent-02" class="adv-components init-adv"></div>
+                    <p>
+                      Hiện nay ngoài việc xuất khẩu,Thuận Minh đã tăng thêm sản lượng cho thị trường nội địa, sản phẩm
+                      chủ đạo là giống lúa ST 25, ĐT8, OM 18, 5451, tấm thơm…. Với mục tiêu mở rộng mạng lưới bán lẻ tại
+                      các tỉnh thành trên toàn quốc và phân phối gạo qua hệ thống bán lẻ, Thuận Minh tiếp tục từng bước
+                      khẳng định thương hiệu bằng chất lượng sản phẩm, mẫu mã, bao bì đẹp và có điểm nhấn tạo ấn tượng
+                      tốt đối với người tiêu dùng, giúp người tiêu dùng nhận biết và ưu tiên lựa chọn sản phẩm thương
+                      hiệu Đồng Việt.
+                    </p>
+                    <div id="MiddleContent-03" class="adv-components init-adv"></div>
+                    <p>
+                      Thuận Minh tiếp tục tập trung vào phát triển vùng nguyên liệu, nâng cao hạ tầng hiện đại và xây
+                      dựng các điểm bán trong nước. Việc phát triển vùng nguyên liệu nhằm đảm bảo nguồn cung lúa gạo đạt
+                      chất lượng và sản lượng ổn định, liên kết với nông dân và các hợp tác xã thực hiện tốt công tác
+                      truy suất nguồn gốc. Chủ động trong các vấn đề xử lý để hạn chế thất thoát sau thu hoạch, giữ chất
+                      lượng lúa tốt nhất thông qua việc đầu tư vào các lò sấy, các nhà máy chế biến gạo hiện đại là mục
+                      tiêu mà thương hiệu gạo Đồng Việt hướng đến.
+                    </p>
+                    <div id="MiddleContent-04" class="adv-components init-adv"></div>
+                    <p>
+                      Thuận Minh có dây chuyền công nghệ chế biến gạo khép kín với các máy móc thiết bị tiên tiến được
+                      chế tạo theo thiết kế và lắp đặt đúng quy trình sản xuất lúa gạo mới, các công đoạn sấy, xay xát
+                      và ủ nguội liên hoàn… theo tiêu chuẩn an toàn vệ sinh thực phẩm, môi trường sản xuất sạch, hiện
+                      đại đảm bảo cho ra sản phẩm đạt chất lượng ổn định để phục phụ người têu dùng.
+                    </p>
+                    <p>
+                      Sản phẩm của Thuận Minh có CBCL và xuất xứ, an toàn thực phẩm rõ ràng, bao bì đóng gói thiết kế
+                      bắt mắt và thể hiện đầy đủ các thông tin về sản phẩm, nơi sản xuất, thời hạn sử dụng, truyền thông
+                      yếu tố “sạch”, các hoạt động về MKT như khuyến mãi, hội thảo, và các hoạt động sampling để hướng
+                      dẫn cách sử dụng cho người têu dùng, tạo niềm tin cho người têu dùng với sản phẩm Đồng Việt.
+                    </p>
+                    <div id="MiddleContent-05" class="adv-components init-adv"></div>
+                    <p>
+                      Sóc trăng, Bạc liêu, Cà Mau và Kiên Giang… là những địa phương có vùng trồng lúa lớn cho chất
+                      lượng gạo ngon mà Thuận Minh liên kết cùng với các Hợp tác xã để cung cấp giống, phân bón và vốn
+                      cho bà con nông dân, đồng thời hỗ trợ bao tiêu cho nông dân khi thu hoạch để kiểm soát được chất
+                      lượng đầu vào và các hạt gạo ngon nhất.
+                    </p>
+                    <p>
+                      Thương hiệu gạo Đồng Việt của Thuận Minh hiện đã có mặt tại thị trường trong nước được hơn 3
+                      tháng, trước đó Thuận Minh&nbsp; đã trở thành đối tác chiến lược của hệ thống WCM. Hiện sản phẩm
+                      Đồng Việt đã có mặt trong hệ thống Co-op Mart, kênh BHX online, kênh VNP, Satra, sắp tới TMC sẽ
+                      tiếp tục chào vào các hệ thống siêu thị khác và xây dựng các đại lý tại một số tỉnh thành để bà
+                      con và người tiêu dùng có thể tiếp cận sản phẩm&nbsp; một cách nhanh nhất.
+                    </p>
+                    <p>
+                      <img
+                        loading="lazy"
+                        decoding="async"
+                        class="alignnone wp-image-3627"
+                        src="https://thuanminh.com.vn/wp-content/uploads/2024/02/IMG-98692.jpg"
+                        alt=""
+                        width="997"
+                        height="560"
+                      />
+                    </p>
+                    <figure class="figure-images init-img">
+                      <figcaption>Thượng hiệu Gạo Đồng Việt tại Extra Linh Trung</figcaption>
+                    </figure>
+                    <p>
+                      Nói về kỳ vọng dòng sản phẩm gạo Thuận Minh khi phát triển tại thị trường trong nước Ông Phạm Văn
+                      Thịnh, Phó Tổng Giám đốc Công ty cổ phần xuất nhập khẩu Thuận Minh cho biết: Về thị trường xuất
+                      khẩu, TMC đã xuất khẩu trên 15 năm và luôn nằm trong Top các công ty xuất khẩu hàng đầu của Việt
+                      Nam, nhà máy chúng tôi đạt chuẩn và năng xuất lớn nên có lợi thế về mặt chất lượng sản phẩm. Tuy
+                      nhiên, chúng tôi xây dựng thị trường nội địa trễ hơn so với các công ty bạn trong ngành gạo nên
+                      chưa được nhiều người tiêu dùng trong nước biết đến, vì vậy ngoài yếu tố sản phẩm được sản xuất
+                      bởi dây chuyền hiện đại, nguồn nguyên liệu tốt để cho ra sản phẩm chất lượng, chúng tôi đã có
+                      chiến lược và tập trung nguồn lực với lực lượng kinh doanh có nhiều kinh nghiệm trong ngành hàng
+                      tiêu dùng nên chúng tôi tự tin sẽ xây dựng thị trường nội địa vững mạnh trong thời gian sớm nhất”.
+                    </p>
+                    <p>
+                      Hiện nay người tiêu dùng ngày càng quan tâm hơn đến nguồn gốc và chất lượng của mặt hàng gạo,
+                      chính vì vậy nếu không đầu tư làm thương hiệu gạo với các tiêu chí sạch, chất lượng cao, minh bạch
+                      thì sẽ khó cạnh tranh. Vì vây kinh doanh bằng tầm nhìn chiến lược, thúc đẩy sự văn minh của xu
+                      hướng chọn lựa gạo tới người tiêu dùng sẽ là thành công của các doanh nghiệp gạo Việt Nam.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col l-4 m-12 c-12">
+                <div class="sideBar">
+                  <div class="sideBar__label">Đã xem gần đây</div>
+                  <a href="./detail-news.html" class="sideBar__news">
+                    <img src="./img/IMG-98662-e1710129711520-414x273.jpg" alt="images" />
+                    <span> Công ty Xuất Nhập Khẩu Thuận Minh Góp </span>
+                  </a>
+                  <a href="./detail-news.html" class="sideBar__news">
+                    <img src="./img/IMG-98662-e1710129711520-414x273.jpg" alt="images" />
+                    <span> Công ty Xuất Nhập Khẩu Thuận Minh Góp </span>
+                  </a>
+                  <a href="./detail-news.html" class="sideBar__news">
+                    <img src="./img/IMG-98662-e1710129711520-414x273.jpg" alt="images" />
+                    <span> Công ty Xuất Nhập Khẩu Thuận Minh Góp </span>
+                  </a>
+                  <a href="./detail-news.html" class="sideBar__news">
+                    <img src="./img/IMG-98662-e1710129711520-414x273.jpg" alt="images" />
+                    <span> Công ty Xuất Nhập Khẩu Thuận Minh Góp </span>
+                  </a>
+                  <a href="./detail-news.html" class="sideBar__news">
+                    <img src="./img/IMG-98662-e1710129711520-414x273.jpg" alt="images" />
+                    <span> Công ty Xuất Nhập Khẩu Thuận Minh Góp </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="homeNews" data-aos="fade-up" data-aos-duration="1000">
+          <div class="container">
+            <h2 class="heading homeNews__heading">
+              Bài viết liên quan
+            </h2>
+            <div class="homeNews__list">
+              <div class="homeNews__item">
+                <a href="./detail-news.html" class="homeNews__image">
+                  <img src="./img/IMG-98662-e1710129711520-414x273.jpg" alt="images" />
+                  <div class="homeNews__date">
+                    <div class="homeNews__date__top">24</div>
+                    <div class="homeNews__date__bot">TH2</div>
+                  </div>
+                </a>
+                <div class="homeNews__body">
+                  <a href="./news.html" class="homeNews__author">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Bởi Nguyen Cuong</span>
+                  </a>
+                  <a href="./detail-news.html" class="homeNews__name"> Công ty Xuất Nhập Khẩu Thuận Minh Góp </a>
+                  <div class="homeNews__line"></div>
+                  <a href="./detail-news.html" class="homeNews__link"
+                    >Đọc thêm <i class="fa-solid fa-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="homeNews__item">
+                <a href="./detail-news.html" class="homeNews__image">
+                  <img src="./img/IMG-98662-e1710129711520-414x273.jpg" alt="images" />
+                  <div class="homeNews__date">
+                    <div class="homeNews__date__top">24</div>
+                    <div class="homeNews__date__bot">TH2</div>
+                  </div>
+                </a>
+                <div class="homeNews__body">
+                  <a href="./news.html" class="homeNews__author">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Bởi Nguyen Cuong</span>
+                  </a>
+                  <a href="./detail-news.html" class="homeNews__name"> Công ty Xuất Nhập Khẩu Thuận Minh Góp </a>
+                  <div class="homeNews__line"></div>
+                  <a href="./detail-news.html" class="homeNews__link"
+                    >Đọc thêm <i class="fa-solid fa-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="homeNews__item">
+                <a href="./detail-news.html" class="homeNews__image">
+                  <img src="./img/IMG-98662-e1710129711520-414x273.jpg" alt="images" />
+                  <div class="homeNews__date">
+                    <div class="homeNews__date__top">24</div>
+                    <div class="homeNews__date__bot">TH2</div>
+                  </div>
+                </a>
+                <div class="homeNews__body">
+                  <a href="./news.html" class="homeNews__author">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Bởi Nguyen Cuong</span>
+                  </a>
+                  <a href="./detail-news.html" class="homeNews__name"> Công ty Xuất Nhập Khẩu Thuận Minh Góp </a>
+                  <div class="homeNews__line"></div>
+                  <a href="./detail-news.html" class="homeNews__link"
+                    >Đọc thêm <i class="fa-solid fa-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </main>
+      <footer class="footer">
+        <div class="footer__top">
+          <div class="row">
+            <div class="col l-3 m-12 c-12">
+              <a href="/" class="footer__logo">
+                <img src="./img/Logo_TMC_New.png" alt="logo footer" />
+              </a>
+              <div class="footer__desc">
+                Công ty TNHH Xuất Nhập Khẩu Thuận Minh (TMI) là một trong những doanh nghiệp hàng đầu trong lĩnh vực sản
+                xuất, xuất khẩu các sản phẩm gạo và được chế biến từ gạo.
+              </div>
+              <div class="footer__socials">
+                <a href="#" class="footer__socials__item">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="footer__socials__item">
+                  <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="#" class="footer__socials__item">
+                  <i class="fa-brands fa-square-instagram"></i>
+                </a>
+                <a href="#" class="footer__socials__item">
+                  <i class="fa-brands fa-youtube"></i>
+                </a>
+              </div>
+            </div>
+            <div class="col l-3 m-12 c-12">
+              <h3 class="footer__heading">Địa chỉ</h3>
+              <div class="footer__group">
+                <div class="footer__label">Địa chỉ:</div>
+                <div class="footer__text">76 Trần Minh Quyền, Phường 11, Quận 10, Thành Phố Hồ Chí Minh</div>
+              </div>
+              <div class="footer__group">
+                <div class="footer__label">Phone:</div>
+                <div class="footer__text">(84-8) 28 38 339 536</div>
+              </div>
+              <div class="footer__group">
+                <div class="footer__label">Email:</div>
+                <div class="footer__text">info@thuanminh.com.vn</div>
+              </div>
+            </div>
+            <div class="col l-3 m-12 c-12">
+              <h3 class="footer__heading">Thông tin</h3>
+              <a href="./about.html" class="footer__link">Tổng quan về Thuận Minh</a>
+              <a href="./about.html" class="footer__link">Tin tức</a>
+              <a href="./about.html" class="footer__link">Sản phẩm</a>
+              <a href="./about.html" class="footer__link">Tuyển dụng</a>
+              <a href="./about.html" class="footer__link">Liên hệ</a>
+            </div>
+            <div class="col l-3 m-12 c-12">
+              <h3 class="footer__heading">Thuận Minh Corporation</h3>
+              <div class="footer__page">
+                <div
+                  class="fb-page"
+                  data-href="https://www.facebook.com/gaothuanminh.vn"
+                  data-tabs="timeline"
+                  data-width=""
+                  data-height="70"
+                  data-small-header="false"
+                  data-adapt-container-width="true"
+                  data-hide-cover="false"
+                  data-show-facepile="true"
+                >
+                  <blockquote cite="https://www.facebook.com/gaothuanminh.vn" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/gaothuanminh.vn">Gạo Đồng Việt</a>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bot">
+          <div class="footer__license">
+            <i class="fa-regular fa-copyright"></i> 2024 All Rights Reserved By Thuan Minh Corporation
+          </div>
+          <div class="footer__menu">
+            <a href="/" class="footer__menu__item"> <i class="fa-solid fa-angle-right"></i> Trang Chủ </a>
+            <a href="./about.html" class="footer__menu__item"> <i class="fa-solid fa-angle-right"></i> Về Chúng Tôi </a>
+            <a href="./product.html" class="footer__menu__item"> <i class="fa-solid fa-angle-right"></i> Sản Phẩm </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/slick.js"></script>
+    <script src="./js/fancybox.js"></script>
+    <script src="./js/library.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

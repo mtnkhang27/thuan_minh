@@ -1,0 +1,86 @@
+.btn {
+    font-family: mon-500;
+    background-color: $primary-color;
+    color: $white-color;
+    padding: 8px 18px;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+    width: fit-content;
+    text-transform: uppercase;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    span {
+        position: relative;
+        z-index: 1;
+        i{
+            margin-left: 6px;
+        }
+    }
+   
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: $secondary-color;
+        transition: all ease-out 0.4s;
+    }
+    &:hover {
+        &::after {
+            width: 100%;
+        }
+        i{
+            right: 0;
+            top: 0;
+            transform: translateY(0);
+        }
+    }
+    &--radius {
+        border-radius: 100px;
+    }
+    &--icon{
+        padding: 20px 56px 20px 36px;
+        font-size: 16px;
+        @include mobile{
+            padding: 12px 40px 12px 20px;
+        }
+        i{
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            transition: all ease-out 0.3s;
+            @include mobile{
+                font-size: 12px;
+                right: 20px;
+            }
+        }
+    }
+    &--big{
+        padding: 20px 36px;
+        font-size: 16px;
+        @include mobile{
+            padding: 12px 20px;
+        }
+    }
+    &--second{
+        background-color: $secondary-color;
+        &::after {
+            background-color: $primary-color;
+        }
+    }
+    &--white{
+        background-color: $white-color;
+        color: $black-color;
+        &:hover{
+            color: $white-color;
+        }
+    }
+}
